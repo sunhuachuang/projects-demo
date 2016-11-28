@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}user{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-3" >
+  {% block content_left %}
+  {{ include('common/left_menu.html.twig') }}
+  {% endblock %}
+  </div>
+  <div class="col-md-9">
+  {% block content_right %}
+  {% endblock %}
+  </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+$(function(){
+    //$(".leftsidebar_box dt").css({"background-color":"#3992d0"});
+    //$(".leftsidebar_box dt img").attr("src","images/select_xl01.png");
+    $(".menu_level_1").hide();
+    $(".level1").click(function(e) {
+        //$(".leftsidebar_box dt").css({"background-color":"#3992d0"})
+        //$(this).css({"background-color": "#317eb4"});
+        //$(this).parent().find('dd').removeClass("menu_chioce");
+        //$(".leftsidebar_box dt img").attr("src","images/select_xl01.png");
+        //$(this).parent().find('img').attr("src","images/select_xl.png");
+        //$(".menu_chioce").slideUp();
+        //alert(e.children().length);
+        //alert(e.children().length);
+        $(this).find(".menu_level_1").slideToggle();
+        //$(this).parent().find('li').addClass("menu_chioce");
+    });
+})
+</script>
+
+{% endblock %}

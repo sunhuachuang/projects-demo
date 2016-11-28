@@ -1,0 +1,486 @@
+马列主义毛邓思想:
+    slug: mlzymdsx
+    children:
+        马克思、恩格斯著作:
+            slug: mksegszz
+        列宁著作:
+            slug: lnzz
+        斯大林著作:
+            slug: sdlzz
+        邓小平著作:
+            slug: dxpzz
+        马、恩、列、斯、毛、邓著作汇编:
+            slug: zelsmdzzhb
+        马、恩、列、斯、毛、邓生平和传记:
+            slug: zelsmdsphzj
+        马列主义、毛泽东思想、邓小平理论的学习和研究:
+            slug: mlzymzdsxdxplldxxhyj
+哲学:
+    slug: zx
+    children:
+        哲学理论:
+            slug: zxll
+        世界哲学:
+            slug: sjzx
+        中国哲学:
+            slug: zgzx
+        亚洲哲学:
+            slug: yzzx
+        非洲哲学:
+            slug: fzzx
+        欧洲哲学:
+            slug: ozzx
+        大洋洲哲学:
+            slug: dyzzx
+        美洲哲学:
+            slug: mzzx
+        思维科学:
+            slug: swzx
+        逻辑学（论理学）:
+            slug: ljx
+        伦理学（道德哲学）:
+            slug: llx
+        美学:
+            slug: mx
+        心理学:
+            slug: xlx
+        宗教:
+            slug: zj
+社会科学总论:
+    slug: shkxzl
+    children:
+        社会科学理论与方法论:
+            slug: shkxllyffl
+        社会科学现状、概况:
+            slug: shkxxzgk
+        社会科学机构、团体、会议:
+            slug: shkxjgtthy
+        社会科学研究方法:
+            slug: shkxyjff
+        社会科学教育与普及:
+            slug: shkxjyypj
+        社会科学丛书、文集、连续性出版物:
+            slug: shkxcswjlxxcbw
+        社会科学参考工具书:
+            slug: shkxckgjs
+        统计学:
+            slug: tjx
+        社会学:
+            slug: shx
+        人口学:
+            slug: rkx
+        管理学:
+            slug: glx
+        民族学:
+            slug: mzx
+        人才学:
+            slug: rcx
+        劳动:
+            slug: ld
+        科学:
+            slug: kx
+政治、法律:
+    slug: zzfl
+    children:
+         政治理论:
+            slug: zzll
+         国际共产主义运动:
+            slug: gjgczyyd
+         中国共产党:
+            slug: zggcd
+         中国共产主义青年团:
+            slug: zzgczygqt
+         各国共产党:
+            slug: gggcd
+         工人、农民、青年、妇女运动与组织:
+            slug: grnmqnfnydyzz
+         世界政治:
+            slug: sjzz
+         中国政治:
+            slug: zzzz
+         各国政治:
+            slug: ggzz
+         外交、国际关系:
+            slug: wjgjgx
+         法律:
+            slug: fl
+军事:
+    slug: js
+    children:
+         军事理论:
+            slug: jsll
+         军事理论学习:
+            slug: jsllxx
+         世界军事:
+            slug: sjjs
+         中国军事:
+            slug: zgjs
+         各国军事:
+            slug: ggjs
+         战略、战役、战术:
+            slug: zlzyzs
+         军事技术:
+            slug: jsjs
+经济:
+    slug: jj
+    children:
+         政治经济学:
+            slug: sjjjx
+         世界各国经济概况、经济史、经济地理:
+            slug: sjggjjgkjjsjjdl
+         经济计划与管理:
+            slug: jjjhygl
+         农业经济:
+            slug: nyjj
+         工业经济:
+            slug: gyjj
+         信息产业经济:
+            slug: xxcyjj
+         交通运输经济:
+            slug: jtysjj
+         旅游经济:
+            slug: lvjj
+         邮电经济:
+            slug: ydjj
+         贸易经济:
+            slug: myjj
+         财政、金融:
+            slug: czjr
+文化、科学、教育、体育:
+    slug: whkxjyty
+    children:
+         文化理论:
+            slug: whll
+         世界各国文化事业概况:
+            slug: sjggwhsygk
+         信息与知识传播:
+            slug: xxyzscb
+         科学、科学研究:
+            slug: kxkxyj
+         教育:
+            slug: jy
+         体育:
+            slug: ty
+语言、文字:
+    slug: yywz
+    children:
+         语言学:
+            slug: yyx
+         汉语:
+            slug: hy
+         中国少数民族语言:
+            slug: zgssmzyy
+         常用外国语:
+            slug: cywgy
+         汉藏语系:
+            slug: hzyx
+         阿尔泰语系:
+            slug: aetyy
+         其他小语种:
+            slug: qtxyz
+         印欧语系:
+            slug: yoyx
+         非洲诸语言:
+            slug: fzzyy
+         美洲诸语言:
+            slug: mzzyy
+         大洋洲诸语言:
+            slug: dyzzyy
+         国际辅助语:
+            slug: gjfzy
+文学:
+    slug: wx
+    children:
+         文学理论:
+            slug: wxll
+         世界文学:
+            slug: sjwx
+         中国文学:
+            slug: zgwx
+         各国文学:
+            slug: sjwx
+艺术:
+    slug: ys
+    children:
+         艺术理论:
+            slug: ysll
+         世界各国艺术概况:
+            slug: sjggysgk
+         绘画:
+            slug: hh
+         书法、篆刻:
+            slug: sfdk
+         雕塑:
+            slug: ds
+         摄影艺术:
+            slug: syys
+         工艺美术:
+            slug: gyms
+         舞蹈:
+            slug: wd
+         戏剧艺术:
+            slug: xjys
+         电影、电视艺术:
+            slug: dydsys
+历史、地理:
+    slug: lsdl
+    children:
+        史学理论:
+            slug: sxll
+        世界史:
+            slug: sjs
+        中国史:
+            slug: zgs
+        亚洲史:
+            slug: yas
+        非洲史:
+            slug: fzs
+        欧洲史:
+            slug: ozs
+        大洋洲史:
+            slug: dyzs
+        美洲史:
+            slug: mzs
+        传记:
+            slug: zj
+        文物考古:
+            slug: wwkg
+        风俗习惯:
+            slug: fsxg
+        地理:
+            slug: dl
+自然科学总论:
+    slug: zrkxzl
+    children:
+        自然科学理论与方法论:
+            slug: zrkxllyffl
+        自然科学现状及发展:
+            slug: zrkxxzjfz
+        自然科学机关、团体、会议:
+            slug: zrkxjgtthy
+        自然科学研究方法:
+            slug: zrkxyjff
+        自然科学教育及普及:
+            slug: zrkxjyjpj
+        自然科学丛书、文集、连续性出版物:
+            slug: zrkxcswjlxxcbw
+        自然科学参考工具书:
+            slug: zrkxckgjs
+        自然科学调查、考察:
+            slug: zrkxdckc
+        自然研究、自然历史:
+            slug: zryjzrls
+        非线性科学:
+            slug: fxxkx
+        系统科学:
+            slug: xtkx
+数理科学和化学:
+    slug: slkxhhx
+    children:
+        数学:
+            slug: sx
+        力学:
+            slug: lx
+        物理学:
+            slug: wlx
+        化学:
+            slug: hx
+        晶体学:
+            slug: jtx
+天文学、地球科学:
+    slug: twxdqkx
+    children:
+        天文学:
+            slug: twx
+        测绘学:
+            slug: chx
+        地球物理学:
+            slug: dqwlx
+        大气科学（气象学）:
+            slug: dqkx
+        地质学:
+            slug: zdx
+        海洋学:
+            slug: hyx
+        自然地理学:
+            slug: zrdlx
+生物科学:
+    slug: swkx
+    children:
+        普通生物学:
+            slug: ptswx
+        细胞学:
+            slug: xbx
+        遗传学:
+            slug: ycx
+        生理学:
+            slug: slx
+        生物化学:
+            slug: swhx
+        生物物理学:
+            slug: swwlx
+        分子生物学:
+            slug: fzswx
+        生物工程学（生物技术）:
+            slug: swgcx
+        古生物学:
+            slug: gswx
+        微生物学:
+            slug: wswx
+        植物学:
+            slug: zwx
+        动物学:
+            slug: dwx
+        昆虫学:
+            slug: kcx
+        人类学:
+            slug: rlx
+医药、卫生:
+    slug: syws
+    children:
+        预防医学、卫生学:
+            slug: yfyxwsx
+        中国医学:
+            slug: zgyx
+        基础医学:
+            slug: jcyx
+        临床医学:
+            slug: lcyx
+        内科学:
+            slug: nk
+        外科学:
+            slug: wkx
+        妇产科学:
+            slug: fckx
+        儿科学:
+            slug: ekx
+        肿瘤学:
+            slug: zlx
+        神经病学与精神病学:
+            slug: sjbxyjsbx
+        皮肤病学与性病学:
+            slug: pfbxyxbx
+        耳鼻喉科学:
+            slug: kbhkx
+        眼科学:
+            slug: ykx
+        口腔科学:
+            slug: kqkx
+        外国民族医学:
+            slug: wgmzyx
+        特种医学:
+            slug: tzyx
+        药学:
+            slug: yx
+农业科学:
+    slug: nykx
+    children:
+        农业基础科学:
+            slug: nyjckx
+        农业工程:
+            slug: nygc
+        农学（农艺学）:
+            slug: nx
+        植物保护:
+            slug: zwbh
+        农作物:
+            slug: nzw
+        园艺:
+            slug: yy
+        林业:
+            slug: ly
+        畜牧、兽医、狩猎、蚕、蜂:
+            slug: xwysslcf
+        水产、渔业:
+            slug: scyy
+工业技术:
+    slug: gyjs
+    children:
+        一般工业技术:
+            slug: ybgyjs
+        矿业工程:
+            slug: kygc
+        石油、天然气工程:
+            slug: sytrqgc
+        冶金工业:
+            slug: yjgy
+        金属学与金属工艺:
+            slug: jsxyjsgy
+        机械、仪表工业:
+            slug: jxybgy
+        武器工业:
+            slug: wqgy
+        能源与动力工程:
+            slug: nyydlgc
+        原子能技术:
+            slug: ylnjs
+        电工技术:
+            slug: dgjs
+        电子技术、通信技术:
+            slug: dzjstxjs
+        自动化技术、计算机技术:
+            slug: zdhjsjsjjs
+        化学工业:
+            slug: hxgy
+        轻工业、手工业:
+            slug: qgysgy
+        建筑科学:
+            slug: jzkx
+        水利工程:
+            slug: slgc
+交通运输:
+    slug: jtys
+    children:
+        综合运输:
+            slug: zhys
+        铁路运输:
+            slug: tlys
+        公路运输:
+            slug: glys
+        水路运输:
+            slug: slys
+航空、航天:
+    slug: hkht
+    children:
+        航空、航天技术的研究与探索:
+            slug: hkhtjsdyjytt
+        航空:
+            slug: hk
+        航天（宇宙航行）:
+            slug: ht
+环境科学、安全科学:
+    slug: hjkxaqkx
+    children:
+        环境科学基础理论:
+            slug: hjkxjcll
+        社会与环境:
+            slug: shyhj
+        环境保护管理:
+            slug: hjbhgl
+        灾害及其防治:
+            slug: zhjqyf
+        环境污染及其防治:
+            slug: hjwrjqfz
+        废物处理与综合利用:
+            slug: fwclyzhly
+        环境质量评价与环境监测:
+            slug: hjzlpjyhjjc
+        安全科学:
+            slug: aqkx
+综合性图书:
+    slug: zhxts
+    children:
+        丛书:
+            slug: cs
+        百科全书、类书:
+            slug: bkqsls
+        辞典:
+            slug: cd
+        论文集、全集、选集、杂著:
+            slug: lwjqjxjzz
+        年鉴、年刊:
+            slug: njnk
+        期刊、连续性出版物:
+            slug: qklxxcbw
+        图书目录、文摘、索引:
+            slug: tsslwzsy;

@@ -1,0 +1,23 @@
+{% extends 'user/base.html.twig' %}
+
+{% block title %}register{% endblock %}
+{% block content_right %}
+    <table class="table">
+        <thead>
+            <th>book_order_id</th>
+            <th>bookname</th>
+            <th>address</th>
+            <th>total_price</th>
+        </thead>
+        <tbody>
+            {% for book_order in app.user.bookOrders %}
+            <tr>
+                <td><a href="{{ path('book_order_show',{'id': book_order.id}) }}">{{ book_order.id }}</a></td>
+                <td>{{ book_order.book.name }}</td>
+                <td>{{ book_order.address }}</td>
+                <td>{{ book_order.book.shopPrice * book_order.number }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

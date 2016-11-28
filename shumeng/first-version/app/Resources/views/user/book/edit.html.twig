@@ -1,0 +1,32 @@
+{% extends 'user/base.html.twig' %}
+
+{% block title %}register{% endblock %}
+{% block content_right %}
+{% if is_granted("ROLE_USER") %}
+{{ include('user/book/_form.html.twig') }}
+{% else %}
+<p>guest cannot see</p>
+{% endif %}
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+$(function(){
+    getSelectVal();
+    $("#book_bookParentCategory").change(function(){
+        getSelectVal();
+    });
+});
+function getSelectVal(){
+    $.getJSON("{{ path('user_book_category_change') }}",{id:$("#book_bookParentCategory").val()}, function(json){
+        console.log(json);
+        var book_bookCategory = $("#book_bookCategory");
+        $("option",book_bookCategory).remove();
+        $.each(json,function(index,array){
+            var option = "<option value='"+array['id']+"'>"+array['name']+"</option>";
+            book_bookCategory.append(option);
+        });
+    });
+}
+</script>
+{% endblock %}

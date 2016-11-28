@@ -1,0 +1,8 @@
+{% extends 'book_base.html.twig' %}
+
+{% block title %}login{% endblock %}
+{% block content_right %}
+{% for book in book_category.books %}
+    {{ book.name }}
+{% endfor %}
+{% endblock %}

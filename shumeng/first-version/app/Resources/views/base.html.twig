@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>{% block title %}shumeng{% endblock %}</title>
+<meta name="robots" content="all" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+{% block stylesheets %}
+{% stylesheets 'css/bootstrap.min.css'
+               'css/style.css'
+               filter="cssrewrite" output="css/application.css"
+ %}
+    <link rel="stylesheet" href="{{ asset_url }}" media="screen" />
+{% endstylesheets %}
+{% endblock %}
+</head>
+<body>
+<div class="container-fluid">
+{% block body %}
+{{ include('common/header.html.twig') }}
+<div class="container-fluid">
+    {% block content %}{% endblock %}
+</div>
+{{ include('common/footer.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+{% javascripts 'js/jquery.min.js'
+               output="js/application.js"
+%}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.th
+{
+    text-align: center;
+}
+#book_bookParentCategory
+{
+    float: left;
+    width: 30%;
+}
+#book_bookCategory
+{
+    float: left;
+    width: 40%;
+}
+.bookcategory
+{
+    padding-left: 5px;
+}

@@ -1,0 +1,61 @@
+{% extends 'user/base.html.twig' %}
+{% block content_right %}
+<div>
+<strong>个人信息</strong>
+
+
+
+<table class="table">
+    <tr>
+        <td>用户名</td>
+        <td>{{ user.username }}</td>
+    </tr>
+    {% if user.truename %}
+    <tr>
+        <td>真实姓名</td>
+        <td>{{ user.truename }}</td>
+    </tr>
+    {% endif %}
+    {% if user.school %}
+    <tr>
+        <td>学校</td>
+        <td>{{ user.school }}</td>
+    </tr>
+    {% endif %}
+    {% if user.area %}
+    <tr>
+        <td>地区</td>
+        <td>{{ user.area }}</td>
+    </tr>
+    {% endif %}
+    {% if user.grade %}
+    <tr>
+        <td>年级</td>
+        <td>{{ user.grade }}</td>
+    </tr>
+    {% endif %}
+    {% if user.position %}
+    <tr>
+        <td>盟员身份</td>
+        <td>{{ user.position }}</td>
+    </tr>
+    {% endif %}
+    {% if user.tel %}
+    <tr>
+        <td>Tel</td>
+        <td>{{ user.tel }}</td>
+    </tr>
+    {% endif %}
+    <tr>
+        <td>Email</td>
+        <td>{{ user.email }}</td>
+    </tr>
+</table>
+</div>
+<div class="text-center">
+<a class="btn btn-default" href="{{ path('user_info_edit',{'id': user.id}) }}" role="button">edit</a>
+</div>
+
+
+
+{% endblock %}

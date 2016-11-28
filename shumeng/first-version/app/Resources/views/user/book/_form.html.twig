@@ -1,0 +1,19 @@
+{%  form_theme form 'form/fields.html.twig' %}
+
+{{ form_start(form) }}
+{{ form_label(form, 'new') }}
+<div class="text-center">
+<p><h4>书本信息</h4></p>
+</div>
+<div class="bookcategory">
+{{ form_label(form.bookCategory) }}
+{{ form_widget(form.bookParentCategory) }}
+{{ form_widget(form.bookCategory) }}
+{{ form_errors(form.bookCategory) }}
+</div>
+{{ form_widget(form) }}
+{{ form_errors(form) }}
+<div class="text-center">
+<input type="submit"  class="btn btn-default" value="submit">
+</div>
+{{ form_end(form) }}

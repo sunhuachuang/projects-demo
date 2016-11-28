@@ -1,0 +1,103 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    role_hierarchy:
+        ROLE_USER:  ROLE_GUEST
+        ROLE_ADMIN:  ROLE_USER
+        ROLE_SUPER:  ROLE_ADMIN
+
+    encoders:
+        AppBundle\Entity\User:
+            #algorithm: bcrypt
+            algorithm: sha1
+        AppBundle\Entity\Admin:
+            #algorithm: bcrypt
+            algorithm: sha1
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        provider_guest:
+            entity:
+                class: AppBundle\Entity\User
+                property: username
+        provider_user:
+            entity:
+                class: AppBundle\Entity\User
+                property: username
+        provider_admin:
+            entity:
+                class: AppBundle\Entity\Admin
+                property: username
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|(admin\/)?css|(admin\/)?images|(admin\/)?js)/
+            security: false
+
+        admin_secured_area:
+            pattern: ^/admin
+            provider: provider_admin
+            anonymous: ~
+            form_login:
+                login_path: admin_login
+                check_path: admin_login_check
+                default_target_path: admin_homepage
+                failure_path: admin_login
+            logout:
+                path:   admin_logout
+                target: admin_login
+
+        user_secured_area:
+            pattern: ^/
+            provider: provider_user
+            anonymous: ~
+            form_login:
+                login_path: user_login
+                check_path: user_login_check
+                default_target_path: user_homepage
+                failure_path: user_login
+            logout:
+                path:   user_logout
+                target: homepage
+
+        guest_secured_area:
+            pattern: ^/
+            provider: provider_guest
+            anonymous: ~
+            form_login:
+                login_path: user_login
+                check_path: user_login_check
+                default_target_path: user_homepage
+                failure_path: user_login
+            logout:
+                path:   user_logout
+                target: homepage
+        #main:
+            #anonymous: ~
+            # activate different ways to authenticate
+
+            # http_basic: ~
+            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: ~
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+    access_control:
+        admin_login:
+            path: /admin/login
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+        admin_register:
+            path: /admin/register
+            roles: ROLE_SUPER
+        admin_area:
+            path: ^/admin
+            roles: ROLE_ADMIN
+        user_login:
+            path: /user/login
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+        user_register:
+            path: /user/register
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+        user_area:
+            path: ^/user
+            roles: ROLE_GUEST

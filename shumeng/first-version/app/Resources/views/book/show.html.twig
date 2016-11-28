@@ -1,0 +1,36 @@
+{% extends 'book_base.html.twig' %}
+
+{% block title %}login{% endblock %}
+{% block content_right %}
+<div class="row">
+  <div class="col-md-3" >
+    <div><img src="{{ asset('uploads/files/' ~ book.coverImg) }}" alt=""></div>
+    <div></div>
+</div>
+<div class="col-md-9">
+    <p>category:{{ book.bookCategory.name }}</p>
+    <p>bookname: {{ book.name }}</p>
+    <p>writer: {{ book.writer }}</p>
+    <p>press: {{ book.press }}</p>
+    <p>version:{{book.version}}</p>
+    <p>shop_price:{{ book.shopPrice }}</p>
+    <p>market_price:{{ book.marketPrice }}</p>
+    <p>number:{{ book.number }}</p>
+    <p>oldlevel:{{ book.oldlevel }}</p>
+    <p>user:{{ book.user.username }}</p>
+
+    <div class="text-center">
+    <form action="{{ path("cart_new",{'id': book.id }) }}" method="post">
+        cartnumber:<input type="text" value="1" name="cart_number">
+        <input type="submit"  class="btn btn-default" value="Cart">
+    </form>
+    </div>
+
+    brief:
+    <pre>
+        {{ book.brief }}
+    </pre>
+
+</div>
+</div>
+{% endblock %}

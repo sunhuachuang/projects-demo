@@ -1,0 +1,27 @@
+/* default by huachuang (https://sunhuachuang.github.io)
+note:
+color in https://www.behance.net/gallery/32154055/Minimalist-Color-Palettes-2015
+ #99B898 --top-backgroud-color
+ #FECEA8 --active
+ #FF847C --note
+ #E84A5F --attention
+ #2A363B --font-color
+*/
+
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+font-style {
+    color: #2A363B
+}
+
+.active {
+    background-color: #FECEA8
+}
+
+.bookor-index-nav {
+    background-color: #99B898
+
+}

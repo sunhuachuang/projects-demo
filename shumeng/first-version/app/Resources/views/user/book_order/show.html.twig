@@ -1,0 +1,17 @@
+{% extends 'user/base.html.twig' %}
+
+{% block title %}order_show{% endblock %}
+{% block content_right %}
+    <div>
+        <p>bookname:<strong>{{ book_order.book.name }}</strong></p>
+        <p>address:<address>{{ book_order.address }}</address></p>
+        <p>reciver:<strong>{{ book_order.reciver }}</strong></p>
+        <p>zipcode:<strong>{{ book_order.zipcode }}</strong></p>
+        <p>tel:<strong>{{ book_order.tel }}</strong></p>
+        <p>email:<strong>{{ book_order.email }}</strong></p>
+        <p>number:<strong>{{ book_order.number }}</strong></p>
+        <p>price:<strong>{{ book_order.book.shopPrice }}</strong></p>
+        <p>total_price:<strong>{{ book_order.book.shopPrice * book_order.number }}</strong></p>
+        <p>desc:<strong>{{ book_order.orderDesc }}</strong></p>
+    </div>
+{% endblock %}

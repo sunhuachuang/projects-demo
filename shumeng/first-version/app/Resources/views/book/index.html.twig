@@ -1,0 +1,13 @@
+{% extends 'book_base.html.twig' %}
+
+{% block title %}book_index{% endblock %}
+{% block content_right %}
+<p>new:</p>
+{% for book in new_books %}
+<a href="{{ path('book_show', {'id': book.id}) }}">{{ book.name }}</a>
+{% endfor %}
+<p>hot:</p>
+{% for book in hot_books %}
+<a href="{{ path('book_show', {'id': book.id}) }}">{{ book.name }}</a>
+{% endfor %}
+{% endblock %}

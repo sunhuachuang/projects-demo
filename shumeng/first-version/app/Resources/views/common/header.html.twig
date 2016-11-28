@@ -1,0 +1,20 @@
+<div class="page-header">
+    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+    <a href="{{ path('homepage') }}"><button type="button" class="btn btn-primary">Index</button></a>
+
+    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+    <a href="{{ path('user_homepage') }}"><button type="button" class="btn btn-info">user</button></a>
+
+    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+    <a href="{{ path('admin_book_category_list') }}"><button type="button" class="btn btn-info">category</button></a>
+
+    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+    <a href="{{ path('book_index') }}"><button type="button" class="btn btn-info">book_index</button></a>
+    <a href="{{ path('cart_index') }}"><button type="button" class="btn btn-info">cart</button></a>
+    <!-- Indicates caution should be taken with this action -->
+    <a href="{{ path('user_login') }}"><button type="button" class="btn btn-warning">login</button></a>
+
+    <!-- Indicates a dangerous or potentially negative action -->
+    <a href="{{ path('user_register') }}"><button type="button" class="btn btn-danger">register</button></a>
+    <a href="{{ path('user_register', {'role': 'guest'}) }}"><button type="button" class="btn btn-danger">guest-register</button></a>
+</div>

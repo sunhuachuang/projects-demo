@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}cart{% endblock %}
+{% block content %}
+<table class="table">
+    <thead>
+        <th>picture</th>
+        <th>name</th>
+        <th>number</th>
+        <th>price</th>
+        <th>total_price</th>
+        <th>delete</th>
+        <th>buy now</th>
+    </thead>
+    {% if app.session.get('carts') %}
+    <tbody>
+        {% for key, cart in app.session.get('carts') %}
+        <tr>
+            <td></td>
+            <td>{{ cart.book.name }}</td>
+            <td>
+            <button class="cart_change_number_less" type="button" class="btn btn-default btn-xs">-</button>
+            <input type="text" value="{{ cart.number }}" name="{{ key }}" class="cart_change_number" />
+            <button class="cart_change_number_add" type="button" class="btn btn-default btn-xs">+</button>
+            </td>
+            <td>{{ cart.book.shopPrice }}</td>
+            <td>{{ cart.book.shopPrice * cart.number }}</td>
+            <td><a href="{{ path('cart_delete', {'key': key}) }}">delete</a></td>
+            <td><a href="{{ path('book_order_new',{'key': key}) }}">buy now</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tr>
+        <td>
+            kind_total:{{ count['kind_total'] }},
+        </td>
+        <td>
+            number_total:{{ count['number_total'] }},
+        </td>
+        <td>
+            price_total:{{ count['price_total'] }}
+        </td>
+        <td>
+            <a href="{{ path('cart_delete') }}">delete all</a>
+        </td>
+        <td><a href="{{ path('book_order_new') }}">buy all</a></td>
+    </tr>
+    {% else %}
+    <tr><td>none</td></tr>
+    {% endif %}
+</table>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+$(".cart_change_number_less").click(function() {
+    var cart = $(this).parent().children(".cart_change_number");
+    change(Number(cart.attr('name')), Number(cart.attr('value')) - 1);
+});
+$(".cart_change_number_add").click(function() {
+    var cart = $(this).parent().children(".cart_change_number");
+    change(Number(cart.attr('name')), Number(cart.attr('value')) + 1);
+});
+$(".cart_change_number").change(function(e){
+    change(e.currentTarget.name, e.currentTarget.value);
+});
+function change(key,number) {
+    $.get("{{ path('cart_change_number') }}",{ key: key, number: number }, function(data){
+        if (data) {
+            alert(data);
+        };
+        location.reload();
+    });
+}
+</script>
+{% endblock %}

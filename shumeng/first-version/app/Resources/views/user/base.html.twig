@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}user{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-2" >
+  {% block content_left %}
+    {{ include('user/common/menu.html.twig') }}
+  {% endblock %}
+  </div>
+  <div class="col-md-10">
+  {% block content_right %}
+  {% endblock %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}order_new{% endblock %}
+{% block content %}
+<div>
+    <table class="table">
+        <thead>
+            <th>img</th>
+            <th>book_name</th>
+            <th>book_number</th>
+            <th>book_price</th>
+            <th>total_price</th>
+        </thead>
+        <tbody>
+        {% if key %}
+            <tr>
+                <td></td>
+                <td>{{ app.session.get('carts')[key]['book'].name }}</td>
+                <td>{{ app.session.get('carts')[key]['number'] }}</td>
+                <td>{{ app.session.get('carts')[key]['book'].shopPrice }}</td>
+                <td>{{ app.session.get('carts')[key]['number'] * app.session.get('carts')[key]['book'].shopPrice }}</td>
+            </tr>
+        {% else %}
+            {% for cart in app.session.get('carts') %}
+            <tr>
+                <td></td>
+                <td>{{ cart['book'].name }}</td>
+                <td>{{ cart['number'] }}</td>
+                <td>{{ cart['book'].shopPrice }}</td>
+                <td>{{ cart['number'] * cart['book'].shopPrice }}</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+{{ include('book_order/_form.html.twig') }}
+{% endblock %}

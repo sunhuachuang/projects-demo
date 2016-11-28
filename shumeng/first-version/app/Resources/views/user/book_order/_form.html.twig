@@ -1,0 +1,12 @@
+{%  form_theme form 'form/fields.html.twig' %}
+
+{{ form_start(form) }}
+<div class="text-center">
+<p><h4>order信息</h4></p>
+</div>
+{{ form_widget(form) }}
+{{ form_errors(form) }}
+<div class="text-center">
+<input type="submit"  class="btn btn-default" value="submit">
+</div>
+{{ form_end(form) }}
