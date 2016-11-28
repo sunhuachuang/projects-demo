@@ -1,0 +1,48 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+<div id="Subject">
+  <ul>
+    <li class="type_text">收到信箱</li>
+    <li class="bg_line"></li>
+  </ul>
+  <div class="content" id="formStyle">
+    <form name="form1" method="post" action="">
+      <ul>
+        <li class="tn" style="width:110px;"><input type="checkbox" name="chkall" value="checkbox" onclick="CheckAll(this.form)"  class="btn2" id="chkall" /></li>
+        <li class="tn"style="width:110px;">状态</li>
+        <li class="tn" style="width:110px;">发件人</li>
+        <li class="tn" style="width:110px;">主题</li>
+        <li class="tn" style="width:150px;">时间</li>
+        <li class="clear"></li>
+        {% for contact in contacts %}
+        <li class="input select">
+        <li class="tn" style="width:110px;"><input type="checkbox" name="delete[]" value="{{ contact.id }}" class="btn2" /></li>
+        <li class="tn"  style="width:110px;">{% if contact.readFlag %}已阅{% else %}<span class="STYLE1" >未阅</span>{% endif %}</li>
+        <li class="tn"  style="width:110px;">{{ contact.username }}</li>
+        <li class="tn"  style="width:110px;"><a href="{{ path('user_contact_show', {id: contact.id}) }}"></a>{{ contact.title }}</li>
+        <li class="tn" style="width:190px;">{{ contact.createdAt|date('Y-m-d h:i:s') }}</li>
+        </li>
+        <li class="clear"></li>
+        {% endfor %}
+        <ul>
+          <li colspan="5"  style="margin-left:580px;">
+            &nbsp;&nbsp;
+            &nbsp;&nbsp;
+            <input type="submit" name="action" value="删除信件" class="button_text" />
+          <li class="clear"></li>
+        </ul>
+    </form>
+    <ul>
+      <li><div class="baidu">总条数: 1 当前页: 1/1 &nbsp;<a href='/index.php/Msg/inmsg?&p=6' >快进</a> <a href='/index.php/Msg/inmsg?&p=1' >尾页</a></div></li>
+      <br/>
+      <li class="textarea"><textarea>
+ 1)绿色互助家园社区的加入和退出是自愿的。一旦自愿退出，同一资料人员不得再次参与。
+ 2) 注册成为亚绿色互助家园社区会员须年满18周岁，并具有识别、判断、自我保护、防范意识之能力。
+ 3) 注册成为绿色互助家园社区会员须提供真实的身份证明（如：身份证/军官/户口簿/护照）证明。身份证号码一经提交即不能修改，虚假身份证一经查实，即永久冻结帐户！</textarea></li>
+  <li class="clear"></li>
+    </ul>
+    <script>new TableSorter("tb1");</script>
+  </div>
+</div>
+{% endblock %}

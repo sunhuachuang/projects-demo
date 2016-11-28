@@ -1,0 +1,32 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+  <h4>#新建新闻<a href="{{ path('admin_news') }}">[返回]</a></h4>
+  <div class="row">
+    {{ form_start(form, {attr: {class: 'form form-horizontal'}}) }}
+    <div class="form-group">
+      <label for="input-username" class="col-sm-2 control-label">新闻公告标题:</label>
+      <div class="col-xs-8">
+        {{ form_widget(form.title, {attr: {class: 'form-control'}}) }}
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">类型：</label>
+      <div class="col-xs-8">
+        {{ form_widget(form.type, {attr: {class: 'form-control'}}) }}
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="exampleInputAmount">内容：</label>
+      <div class="col-xs-8">
+        {{ form_widget(form.content, {attr: {class: 'form-control', rows: 15}}) }}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-3 col-sm-offset-5">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">确认</button>
+      </div>
+    </div>
+    {{ form_end(form) }}
+  </div>
+{% endblock %}

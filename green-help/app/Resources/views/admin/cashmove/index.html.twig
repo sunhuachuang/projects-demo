@@ -1,0 +1,52 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+  <h4>#货币流向统计</h4>
+  <form class="form-inline">
+    <div class="form-group">
+      <input type="text" name="dateStart" class="form-control" id="exampleInputEmail3" placeholder="开始日期: 2016-1-11">
+    </div>
+    <div class="form-group">
+      <input type="text" name="dateEnd" class="form-control" id="exampleInputEmail3" placeholder="结束日期: 2016-1-11">
+    </div>
+    <div class="form-group">
+      <input type="text" name="username" class="form-control" id="exampleInputPassword3" placeholder="会员编号">
+    </div>
+    <button type="submit" class="btn btn-primary">立即搜索</button>
+  </form>
+  <br>
+  <div style="padding-bottom: 0.5em;">
+    <a class="btn btn-sm" href="#" role="button">查看全部</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">本息</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">基金</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">经理</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">全部奖金</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">奖金提现</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">开通会员</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">货币转账</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">货币充值</a>
+  </div>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <th>流出会员</th>
+      <th>流入会员</th>
+      <th>金额</th>
+      <th>时间</th>
+      <th>类型</th>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>aa</td>
+        <td>aa</td>
+        <td>aa</td>
+        <td>aa</td>
+        <td>aa</td>
+      </tr>
+
+    </tbody>
+  </table>
+  <div>
+    <a class="btn btn-info">导出到Excel</a>
+  </div>
+{% endblock %}

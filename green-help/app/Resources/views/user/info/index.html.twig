@@ -1,0 +1,82 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+<div id="Subject">
+  <ul>
+    <li class="type_text">个人资料</li>
+    <li class="bg_line"></li>
+  </ul>
+  <div class="content" id="formStyle">
+  {{ form_start(form, {attr: {id: 'infoForm'}}) }}
+    <ul>
+      <li class="tn">账号：
+      <li class="input">{{ app.user.username }}
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">联系电话：
+      <li class="input">{{ app.user.phone }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">注册日期：
+      <li class="input">{{ app.user.createdAt|date('Y-m-d h:i:s') }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">身份证号：</li>
+      <li class="input">{{ form_widget(form.cartId) }}{{ form_errors(form.cartId)}}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">支付宝：</li>
+      <li class="input">{{ form_widget(form.myPay) }}{{ form_errors(form.myPay)}}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">推荐人：</li>
+      <li class="input">{{ app.user.parent.username|default('无') }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">所属报单中心：</li>
+      <li class="input">{{ app.user.reportDepartment|default('') }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">开户银行：</li>
+      <li class="input">{{ form_widget(form.bankObject, {attr: {style: "width:260px;height:40px;"}})}}{{ form_errors(form.bankObject)}}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">开户账号：
+      <li class="input">{{ form_widget(form.bankNumber) }}{{ form_errors(form.bankNumber)}}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">开户姓名：</li>
+      <li class="input">{{ form_widget(form.bankName) }}{{ form_errors(form.bankName)}}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">开户省份：</li>
+      <li class="input">{{ form_widget(form.bankProvince) }}{{ form_errors(form.bankProvince)}}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">开户城市：
+      <li class="input">{{ form_widget(form.bankCity) }}{{ form_errors(form.bankCity)}}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">详细开户地址：
+      <li class="input">{{ form_widget(form.bankAddress) }}{{ form_errors(form.bankAddress)}}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="button"><input type="submit" value="确认提交" /><input type="reset" id="reset" value="重新填写" /></li>
+    </ul>
+    {{ form_end(form) }}
+  </div>
+</div>
+{% endblock %}

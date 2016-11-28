@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <div id="wrapper">
+    {{ include('user/common/header_menu.html.twig') }}
+    <div id="among">
+      <ul id="aside">
+        <li class="list m1"><a>账号信息<b></b></a></li>
+        <li class="line1"></li>
+        <li class="list2">
+          <a href="{{ path('user_info') }}">个人资料</a>
+          <a href="{{ path('user_change_password') }}">修改密码</a>
+          <a href="{{ path('user_register') }}">注册会员</a>
+          <a href="{{ path('user_info_tree') }}">推荐会员树状图</a>
+        </li>
+        <li class="line"></li>
+        <li class="list m2"><a>市场管理<b></b></a></li>
+        <li class="line1"></li>
+        <li class="list2">
+          {{ knp_menu_render('AppBundle:Builder:userLevelMenu') }}
+        </li>
+        <li class="line"></li>
+        <li class="list m3"><a>财务管理<b></b></a></li>
+        <li class="line1"></li>
+        <li class="list2">
+          {{ knp_menu_render('AppBundle:Builder:userFinanceMenu') }}
+        </li>
+        <li class="line"></li>
+        <li class="list m4"><a>交易信息<b></b></a></li>
+        <li class="line1"></li>
+        <li class="list2">
+          <a href="{{ path('user_transaction', {slug: 2})}}">提供帮助</a>
+          <a href="{{ path('user_transaction', {slug: 1})}}">得到帮助</a>
+        </li>
+        <li class="line"></li>
+        <li class="list m5"><a>报单中心<b></b></a></li>
+        <li class="line1"></li>
+        <li class="list2">
+          <a href="{{ path('user_declaration_show') }}">激活会员</a>
+        </li>
+      </ul>
+      {% block value %}
+      {% endblock %}
+      <ul class="clear"></ul>
+    </div>
+    {{ include('user/common/footer.html.twig') }}
+  </div>
+{% endblock %}

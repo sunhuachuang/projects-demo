@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0033)http://www.52917168.com/index.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>绿色互助家园</title>
+<meta name="keywords" content="绿色互助家园">
+<meta name="description" content="绿色互助家园">
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+
+<link href="./user-home_files/master.css" rel="stylesheet" media="screen" type="text/css">
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/jquery-1.7.2.min11.js\"></sc"+"ript>")</script><script src="./user-home_files/jquery-1.7.2.min11.js"></script>
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/common11.js\"></sc"+"ript>")</script><script src="./user-home_files/common11.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $("#Subject .showTab .list").click(function(e) {
+		var num=$("#Subject .showTab .list").index(this);
+        $(this).addClass("list hover");
+		$(this).prevAll(".list").removeClass("list hover").addClass("list");
+		$(this).nextAll(".list").removeClass("list hover").addClass("list");
+		$("#Subject .Section").hide();
+		$("#Subject #Section"+num).show();
+    });
+	$("a.Withdrawals").click(function(e) {
+		var h=$("#information.Withdrawals").height()+2;
+		$("#information.Withdrawals").css({"margin-top":-h/2}); 
+		$("#information.Withdrawals,#information_bg").show()
+    });
+	$("a.Get").click(function(e) {
+		var h=$("#information.Get").height()+2;
+		$("#information.Get").css({"margin-top":-h/2});
+		$("#information.Get,#information_bg").show()
+    });
+
+	$("a.Getj").click(function(e) {
+		var h=$("#information.Getj").height()+2;
+		$("#information.Getj").css({"margin-top":-h/2});
+		$("#information.Getj,#information_bg").show()
+    });
+
+	$("a.Getjj").click(function(e) {
+		var h=$("#information.Getjj").height()+2;
+		$("#information.Getjj").css({"margin-top":-h/2});
+		$("#information.Getjj,#information_bg").show()
+    });
+    
+
+    
+	$("a.Provide").click(function(e) {
+		var h=$("#information.Provide").height()+2;
+		$("#information.Provide").css({"margin-top":-h/2});
+		$("#information.Provide,#information_bg").show()
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+  <ul id="header">
+    <li class="logo"><a href="http://www.52917168.com/index.php"><img src="./user-home_files/logo.png"></a></li>
+    <li class="mainMenu m5">
+      <a class="a" href="http://www.52917168.com/index.php/Public/LogOut/" onclick="if(confirm(&#39;确定安全退出吗?&#39;)) return true; else return false;" target="_top">退出系统</a>
+    </li>
+    <li class="mainXian"></li>
+    <li class="mainMenu m4">
+      <a class="a" href="http://www.52917168.com/index.php/Msg/writemsg/">联系我们</a>
+    </li>
+    <li class="mainMenu m3">
+      <a class="a" href="http://www.52917168.com/index.php/News/News">新闻公告</a>
+    </li>
+    <li class="mainMenu m2">
+      <a class="a" href="http://www.52917168.com/index.php/Tree/guanyu">关于我们</a>
+    </li>
+    <li class="mainMenu m1">
+    
+      <a class="a hover" href="http://www.52917168.com/index.php">首页</a>
+    </li>
+    <li class="clear"></li>
+  </ul>
+  <div id="among">
+    <ul id="aside">
+      <li class="list m1"><a>账号信息<b></b></a></li>
+      <li class="line1"></li>
+      <li class="list2">
+        <a href="http://www.52917168.com/index.php/Change/cody/c_id/1">个人资料</a>
+        <a href="http://www.52917168.com/index.php/Change/cody/c_id/2">修改密码</a>
+        <a href="http://www.52917168.com/index.php/Reg/users">注册会员</a>
+         <a href="http://www.52917168.com/index.php/Reg/userss">增加账号</a>
+     
+        <a href="http://www.52917168.com/index.php/Tree/cody/c_id/6">推荐会员树状图</a>
+      </li>
+      <li class="line"></li>
+      <li class="list m2"><a>市场管理<b></b></a></li>
+      <li class="line1"></li>
+      <li class="list2">
+        <a href="http://www.52917168.com/index.php/Tree/jinl">实习经理申请</a>
+        <a href="http://www.52917168.com/index.php/Tree/jinl">正式经理申请</a>
+        <a href="http://www.52917168.com/index.php/Tree/jinl">市场总监申请</a>
+      </li>
+      <li class="line"></li>
+      <li class="list m3"><a>财务管理<b></b></a></li>
+      <li class="line1"></li> 
+      <li class="list2">
+        <a href="http://www.52917168.com/index.php/Cash/wallet">本息钱包</a>
+        <a href="http://www.52917168.com/index.php/Cash/wallettt">基金钱包</a>
+        <a href="http://www.52917168.com/index.php/Cash/wallett">经理钱包</a>
+      </li>
+     <li class="line"></li>
+      <li class="list m4"><a>交易信息<b></b></a></li>
+      <li class="line1"></li>
+      <li class="list2">
+        <a href="http://www.52917168.com/index.php/Cash/tigong">提供帮助</a>
+        <a class="hover" href="http://www.52917168.com/index.php/Cash/jieshou">得到帮助</a>
+
+      </li>
+      <li class="line"></li>
+      <li class="list m5"><a>报单中心<b></b></a></li>
+      <li class="line1"></li>
+      <li class="list2">
+       
+        
+        
+        		    
+			     
+             <a href="http://www.52917168.com/index.php/Cash/jihuo">激活会员</a>   
+        
+       
+      </li>
+    </ul>
+    <div id="Subject">
+      <ul id="memberInfo">
+        <li class="img"><img src="./user-home_files/img.png"></li>
+        <li class="name">会员名称：开户姓名</li>
+        <li class="clear"></li>
+        <li class="tel">13888888888</li>
+        <li class="info bg1">
+          <a class="hover" href="http://www.52917168.com/index.php/Change/cody/c_id/1">手机</a>
+          <ul>
+            <li>绑定手机，已绑定</li>
+            <b></b>
+          </ul>
+        </li>
+        <li class="info bg2">
+        <span style="margin-left:8px; position:absolute;top:-20px;color:red;"></span>
+          <a href="http://www.52917168.com/index.php/Msg/inmsg">手机</a>
+        </li>
+        <li class="info bg3">
+          <a href="http://www.52917168.com/index.php/Change/cody/c_id/1">手机</a>
+        </li>
+        <li class="clear"></li>
+        <li class="xian"></li>
+        <li class="money">
+          <span>本息钱包(元）</span>
+          <font>0.00</font>
+          <a class="Get">提现</a>
+        </li>
+        <li class="xian"></li>
+        <li class="money">
+          <span>基金钱包(元）</span>
+          <font>32767</font>
+          <a class="Getjj">提现</a>
+        </li>
+        <li class="xian"></li>
+        <li class="money">
+          <span>经理钱包(元）</span>
+          <font>160000</font>
+          <a class="Getj">提现</a>
+        </li>
+        <li class="clear"></li>
+      </ul>
+      <ul id="memberInfo_r">
+      
+      
+        
+	       
+      		     		     <li class="tn" style="margin-top:26px">会员级别：<b>市场总监</b></li>		     <li class="tn" style="margin-top:26px">会员级别：正式会员 </li>
+			
+        <form id="form2" name="form2" method="post" action="http://www.52917168.com/index.php/Index/main">
+        <li class="site">我的推广地址：<a href="http://www.52917168.com/index.php/Reg/us_reg/rid/1" target="_blank">index/Reg/us_reg/rid/1</a></li><input type="hidden" name="__hash__" value="e251273eb74a8ee3f661a7af00915af1_5295a1ad88cf760328f898d60f0e1139"></form>
+      </ul>
+      <ul class="bg_line"></ul>
+      <ul>
+        <li style="font-size:18px; font-weight:bold; margin-top:17px">交易信息  </li><span style="color:#E53333;font-size:24px;background-color:#FFFFFF;">排单前请完善个人信息，否则会报参数错误。</span>
+        <li class="trading">
+         <a class="Provide" style="background:url(public/images/3.jpg) no-repeat;">
+		  <br>
+            <span><strong><h2>提供帮助</h2></strong></span>
+          </a>
+          <a class="Get" style="background:url(public/images/1.jpg) no-repeat;">
+		  <br>
+            <span><strong><h2>接受帮助</h2></strong></span>
+          </a>
+          
+          
+          <a class="Gett" style="background:url(public/images/5.png) no-repeat;">
+            <span>平台动态</span>
+            <b>76%</b>
+          </a>
+          <a class="Gett" style="background:url(public/images/4.jpg) no-repeat;">
+            <span>数据比例</span>
+            <b>16%</b>
+          </a>
+          
+          
+          </li><li class="clear"></li>
+        
+      </ul>
+      <ul class="bg_line"></ul>
+      <ul class="showTab">
+        <li class="list hover">钱包支出</li>
+        <li class="xian"></li>
+        <li class="list">钱包收入</li>
+        <li class="clear"></li>
+      </ul>
+      <div class="Section" id="Section0">
+        <ul class="list type">
+          <li class="li1">时间</li>
+          <li class="li2">钱包类型</li>
+          <li class="li3">金额</li>
+          <li class="last">交易状态</li>
+          <div class="clear"></div>
+        </ul>
+                
+        <ul id="PageNum">
+        <li></li>
+      </ul>
+      </div>
+      
+      
+      <div class="Section" id="Section1" style="display:none">
+        <ul class="list type">
+          <li class="li1">时间</li>
+          <li class="li2">钱包类型</li>
+          <li class="li3">金额</li>
+          <li class="last">交易状态</li>
+          <div class="clear"></div>
+        </ul>
+        
+         <ul class="list">
+          <li class="li1">2016-04-22 07:18:35</li>
+          <li class="li2">利息</li>
+          <li class="li3">400.00</li>
+          <li class="last hover">交易成功</li>
+          <div class="clear"></div>
+        </ul><ul class="list">
+          <li class="li1">2016-04-21 01:57:04</li>
+          <li class="li2">利息</li>
+          <li class="li3">400.00</li>
+          <li class="last hover">交易成功</li>
+          <div class="clear"></div>
+        </ul><ul class="list">
+          <li class="li1">2016-04-20 08:23:59</li>
+          <li class="li2">利息</li>
+          <li class="li3">400.00</li>
+          <li class="last hover">交易成功</li>
+          <div class="clear"></div>
+        </ul><ul class="list">
+          <li class="li1">2016-04-19 07:31:38</li>
+          <li class="li2">利息</li>
+          <li class="li3">300.00</li>
+          <li class="last hover">交易成功</li>
+          <div class="clear"></div>
+        </ul><ul class="list">
+          <li class="li1">2016-04-19 07:31:38</li>
+          <li class="li2">利息</li>
+          <li class="li3">450.00</li>
+          <li class="last hover">交易成功</li>
+          <div class="clear"></div>
+        </ul>       
+        <ul id="PageNum">
+        <li><div class="baidu">总条数: 5 当前页: 1/1 &nbsp;      <a href="http://www.52917168.com/index.php?&amp;p=6">快进</a> <a href="http://www.52917168.com/index.php?&amp;p=1">尾页</a></div></li>
+      </ul>
+ 
+      </div>
+     
+    </div>
+    <ul class="clear"></ul>
+  </div>
+  <div id="footer">
+    <div class="copyright">Copyright © 2016 绿色互助家园版权所有</div>
+  </div>
+</div>
+
+
+<!-- 经理 -->
+
+
+ <form name="form1" method="post" action="http://www.52917168.com/index.php/Cash/sell_ACC/">
+ 
+<div id="information" class="Getj">
+  <div class="clear" style="height:17px"></div>
+  <div class="title"><span>立即获得帮助</span></div>
+  <div id="formStyle">
+    <ul>
+    <li class="title">
+       <label><input type="checkbox" value="0" name="pay_type[]" checked="checked">银行支付</label>
+            <label><input type="checkbox" value="1" name="pay_type[]" checked="checked">支付宝支付</label>
+            </li><li class="clear"></li>
+            
+      <li class="tn">获得帮助金额：</li><strong>提取金额为100的倍数</strong>
+      <li class="input"><input type="text" name="s_money" id="s_money" value=""></li>
+      <br><br>
+      <p class="Prompt" style="margin-left:50px; font-size:20px;"> 我已完全了解所有风险。我自愿参与绿色互助家园,尊重绿色互助家园文化与传统。</p>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="button"><input type="submit" onclick="if(confirm(&#39;确定要申请求助吗？&#39;)) return true; else return false;" value="确认提交"><input class="Cancel" type="button" value="取消"></li>
+      <li class="clear"></li>
+    </ul>
+  </div>
+   <input type="hidden" name="s_type" value="1">
+  <a class="close_click">关闭</a>
+</div>
+<input type="hidden" name="__hash__" value="e251273eb74a8ee3f661a7af00915af1_5295a1ad88cf760328f898d60f0e1139"></form>
+<!-- end -->
+
+
+<!-- 基金 -->
+<form name="form1" method="post" action="http://www.52917168.com/index.php/Cash/sell_ACCC/">
+ 
+<div id="information" class="Getjj">
+  <div class="clear" style="height:17px"></div>
+  <div class="title"><span>立即获得帮助</span></div>
+  <div id="formStyle">
+    <ul>
+    <li class="title">
+       <label><input type="checkbox" value="0" name="pay_type[]" checked="checked">银行支付</label>
+            <label><input type="checkbox" value="1" name="pay_type[]" checked="checked">支付宝支付</label>
+            </li><li class="clear"></li>
+            
+      <li class="tn">获得帮助金额：</li><strong>提取金额为100的倍数</strong>
+      <li class="input"><input type="text" name="s_money" id="s_money" value=""></li>
+      <br><br>
+      <p class="Prompt" style="margin-left:50px; font-size:20px;"> 我已完全了解所有风险。我自愿参与绿色互助家园,尊重绿色互助家园文化与传统。</p>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="button"><input type="submit" onclick="if(confirm(&#39;确定要申请求助吗？&#39;)) return true; else return false;" value="确认提交"><input class="Cancel" type="button" value="取消"></li>
+      <li class="clear"></li>
+    </ul>
+  </div>
+   <input type="hidden" name="s_type" value="1">
+  <a class="close_click">关闭</a>
+</div>
+<input type="hidden" name="__hash__" value="e251273eb74a8ee3f661a7af00915af1_5295a1ad88cf760328f898d60f0e1139"></form>
+
+<!-- end -->
+
+
+ <form name="form1" method="post" action="http://www.52917168.com/index.php/Cash/sell_AC/">
+ 
+<div id="information" class="Get">
+  <div class="clear" style="height:17px"></div>
+  <div class="title"><span>立即获得帮助</span></div>
+  <div id="formStyle">
+    <ul>
+    <li class="title">
+       <label><input type="checkbox" value="0" name="pay_type[]" checked="checked">银行支付</label>
+            <label><input type="checkbox" value="1" name="pay_type[]" checked="checked">支付宝支付</label>
+            </li><li class="clear"></li>
+            
+      <li class="tn">获得帮助金额：</li><strong>提取金额为100的倍数</strong>
+      <li class="input"><input type="text" name="s_money" id="s_money" value=""></li>
+      <br><br>
+      <p class="Prompt" style="margin-left:50px; font-size:20px;"> 我已完全了解所有风险。我自愿参与绿色互助家园,尊重绿色互助家园文化与传统。</p>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="button"><input type="submit" onclick="if(confirm(&#39;确定要申请求助吗？&#39;)) return true; else return false;" value="确认提交"><input class="Cancel" type="button" value="取消"></li>
+      <li class="clear"></li>
+    </ul>
+  </div>
+  <a class="close_click">关闭</a>
+</div>
+ <input type="hidden" name="s_type" value="1">
+<input type="hidden" name="__hash__" value="e251273eb74a8ee3f661a7af00915af1_5295a1ad88cf760328f898d60f0e1139"></form>
+
+  <form name="form1" method="post" action="http://www.52917168.com/index.php/Cash/buy_AC/">
+  
+  
+<div id="information" class="Provide">
+  <div class="clear" style="height:17px"></div>
+  <div class="title"><span>立即提供帮助</span></div>
+  <div id="formStyle">
+    <ul>
+    
+     <label><input type="checkbox" value="0" name="pay_type[]" checked="checked">银行支付</label><label><input type="checkbox" value="1" name="pay_type[]" checked="checked">支付宝支付</label>
+      <li class="tn">提供帮助金额：</li><strong>提供帮助金额为1000的倍数</strong>
+      <li class="input"><input type="text" name="money" id="money" value="0"></li>
+      <br><br>
+     <p class="Prompt" style="margin-left:50px; font-size:20px;">我已完全了解所有风险。我自愿参与绿色互助家园,尊重绿色互助家园文化与传统。</p>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="button"><input type="submit" onclick="if(confirm(&#39;确定要提供帮助吗？&#39;)) return true; else return false;" value="确认提交"><input class="Cancel" type="button" value="取消"></li>
+      <li class="clear"></li>
+    </ul>
+  </div>
+  <a class="close_click">关闭</a>
+</div>
+ <input type="hidden" name="s_type" value="0">
+<input type="hidden" name="__hash__" value="e251273eb74a8ee3f661a7af00915af1_5295a1ad88cf760328f898d60f0e1139"></form>
+<div id="information_bg"></div>
+<script language="JavaScript" type="text/javascript" src="./user-home_files/tws.js"></script><script type="text/javascript">try {var seal52475982894 = new SealObject();seal52475982894.initSeal('seal52475982894');}catch(e){};</script><div id="hideBox524775545" style="display: none; position: absolute;"><iframe id="frameBig524775209" src="./user-home_files/saved_resource.html" width="250" height="300" frameborder="0" style="border:0px;margin:0px;padding:0px;" scrolling="no"></iframe></div><img id="frameMini524771729" style="border: 0px; margin: 0px; padding: 0px; cursor: pointer; visibility: hidden;" border="0" oncontextmenu="return false;"><script type="text/javascript" src="./user-home_files/SealAction.aspx" id="script525077322"></script>
+</body></html>

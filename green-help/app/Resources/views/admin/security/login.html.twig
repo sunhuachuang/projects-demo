@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Circle-Loop{% endblock %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/common1.css') }}" rel="stylesheet" media="screen" type="text/css" />
+{% endblock %}
+
+{% block body %}
+  <body id="passport">
+    <header><h1>Circle-Loop</h1></header>
+    <main id="main"><h2>用户登录</h2>
+      <form action="{{ path('admin_login_check') }}" method="post" role="form">
+        <input type="text"  placeholder="用户帐号" name="_username" value="{{ last_username }}" required class="full"/>
+        <input type="password"  placeholder="登录密码" name="_password" required class="full" />
+        <div style="text-align:center"><button type="submit" >欢迎登录</button></div>
+      </form>
+      <div style="clear:both; height:40px"></div>
+      <div id="result"  style="width:250px;">
+        {% if error %}
+          ※{{ error.messageKey|trans(error.messageData,'security') }}
+        {% endif %}
+      </div>
+    </main>
+    <footer>&copy;2015 Circle-Loop All Rights Reserved.</footer>
+    <body>
+{% endblock %}

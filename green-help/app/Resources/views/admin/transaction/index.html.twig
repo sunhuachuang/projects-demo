@@ -1,0 +1,56 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+  <h4>#委托交易处理</h4>
+    <form class="form-inline">
+    <div class="form-group">
+      <input type="text" name="username" class="form-control" id="exampleInputPassword3" placeholder="模糊查询">
+    </div>
+    <button type="submit" class="btn btn-primary">立即搜索</button>
+  </form>
+  <br>
+  <div style="padding-bottom: 0.5em;">
+    <a class="btn btn-sm" href="#" role="button">查看全部</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">等待交易</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">等待汇款</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">等待确认</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">交易完成</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">等待处理</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">处理完成</a>
+  </div>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <th>进场订单</th>
+      <th>买家编号</th>
+      <th>出场订单</th>
+      <th>卖家编号</th>
+      <th>卖出时间</th>
+      <th>买入时间</th>
+      <th>金额</th>
+      <th>汇款金额</th>
+      <th>状态</th>
+      <th>处理</th>
+    </thead>
+    <tbody>
+      {% for trans in transes %}
+      <tr>
+        <td>{{ trans.orderNumber }}</td>
+        <td>{{ trans.username }}</td>
+        <td>{{ trans.matchProvide.orderNumber }}</td>
+        <td>{{ trans.matchProvide.username }}</td>
+        <td>{{ trans.matchProvide.createdAt|date('Y-m-d h:i:s') }}</td>
+        <td>{{ trans.createdAt|date('Y-m-d h:i:s') }}</td>
+        <td>{{ trans.money }}</td>
+        <td>{{ trans.matchProvide.money }}</td>
+        <td>
+          {% if trans.status == 0 %}等待打款
+          {% elseif trans.status == 1 %}已打款，等待收款
+          {% elseif trans.status == 2 %}交易完成
+          {% endif %}
+        </td>
+        <td></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

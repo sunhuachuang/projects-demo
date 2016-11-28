@@ -1,0 +1,53 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+<div id="Subject">
+  <ul style="">
+    <li class="type_text">联系我们</li>
+    <li><a href="{{ path('user_contact_list') }}"  style="font-size:18px;margin-top:18px;float:right;margin-left:20px;font-weight:bold;line-height:28px;border-bottom:2px solid #eb4f38;">收件箱</a></li>
+    <li class="bg_line"></li>
+  </ul>
+  <div class="content" id="formStyle">
+    {{ form_start(form) }}
+      <ul>
+        <li class="tn"><span>*</span>标题：</li>
+        <li class="input">
+          {{ form_widget(form.title, {attr: {style: "width:260px;height:40px;"}}) }}
+          {{ form_errors(form.title) }}
+        </li>
+        <li class="clear"></li>
+      </ul>
+      <ul>
+        <li class="tn"><span>*</span>给公司留言：</li>
+        {{ form_widget(form.isCompany) }}{{ form_errors(form.isCompany) }}
+        <li class="clear"></li>
+      </ul>
+      <ul>
+        <li class="tn"><span>*</span>您的ID：</li>
+        <li class="input">{{ form_widget(form.selfUsername, {attr: {value: app.user.username}}) }}{{ form_errors(form.selfUsername) }}</li>
+        <li class="clear"></li>
+      </ul>
+      <ul>
+        <li class="tn"><span>*</span>匹配ID：</li>
+        <li class="input">{{ form_widget(form.username) }}{{ form_errors(form.username) }}</li>
+        <li class="clear"></li>
+      </ul>
+      <ul>
+        <li class="tn"><span>*</span>对方电话：</li>
+        <li class="input">{{ form_widget(form.phone) }}{{ form_errors(form.phone) }}</li>
+        <li class="clear"></li>
+      </ul>
+      <ul>
+        <li class="tn"><span>*</span>备注：</li>
+        <li class="textarea">{{ form_widget(form.message) }}
+        <li class="clear"></li>
+        </li>
+      </ul>
+      <ul>
+        <li class="button"><input type="submit" value="信息反馈" /><input type="reset" value="重新填写" /></li>
+        <li class="clear"></li>
+      </ul>
+  {{ form_end(form) }}
+  </div>
+</div>
+{% endblock %}

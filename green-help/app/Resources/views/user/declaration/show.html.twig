@@ -1,0 +1,42 @@
+{% extends 'user/base.html.twig' %}
+
+{% set user = app.user %}
+
+{% block value %}
+  <div id="Subject">
+    <ul>
+      <li class="type_text">激活会员</li>
+      <li class="type_text" style="margin-left:200px;">报单中心号码:</li>
+      <li class="type_text" style="margin-left:10px;">{{ user.reportDepartment }}</li>
+      <li class="type_text" style="margin: 18px;">
+        {% if user.declarateStatus == 1 %}
+          报单正在申请中
+        {% elseif user.declarateStatus == 0 and number >= needNumber %}
+          <a href="{{ path('user_declaration_apply')}}">申请报单中心！</a>
+        {% endif %}
+      </li>
+      <li class="location">余额</li>
+      <li class="location money">{{ user.getWallet('激活币') ? user.getWallet('激活币').money : 0.00 }}</li>
+      <li class="location"><b>激活币：</b></li>
+      <li class="clear"></li>
+    </ul>
+    <div class="Section" id="Section0">
+      <ul class="list type">
+        <li style="width:180px">已/待激活会员账号</li>
+        <li style="width:180px">电话</li>
+        <li style="width:210px">身份证</li>
+        <li class="last">状态</li>
+        <div class="clear"></div>
+      </ul>
+      {% for child in user.children %}
+      <ul class="list">
+        <li style="width:180px">{{ child.username }}</li>
+        <li style="width:190px">{{ child.phone }}</li>
+        <li style="width:210px">{{ child.cartId }}</li>
+        <li class="last">{{ child.level }}</li>
+        <div class="clear"></div>
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

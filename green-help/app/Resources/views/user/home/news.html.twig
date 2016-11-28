@@ -1,0 +1,15 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+  <div id="Subject">
+    {% for news in newses %}
+      <ul>
+        <li class="type_text">{{ news.title }}</li>
+        <li class="bg_line"></li>
+      </ul>
+      <div>
+        {{ news.content }}
+      </div>
+    {% endfor %}
+  </div>
+{%  endblock %}

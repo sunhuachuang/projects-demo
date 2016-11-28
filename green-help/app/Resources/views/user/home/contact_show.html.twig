@@ -1,0 +1,85 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+  {{ dump(contact) }}
+<div id="Subject">
+      <ul>
+        <li class="type_text">收到信箱</li>
+        <li class="bg_line"></li>
+      </ul>
+      <div class="content" id="formStyle">
+<!-- 内容部分 ================================================================ -->
+<div class="accounttitle"><h1>查看邮件内容&nbsp;&nbsp;[<a href='javascript:history.back()'>返回列表</a>] </h1></div>
+
+<form name="myform" method="post" action="/index.php/Msg/replyAC" onSubmit="return checklogin()" >
+
+      <ul>
+         <li class="tn">发件人编号：</li>
+         <li class="tn">公司</li>
+           <li class="clear"></li>
+     </ul>
+
+      <ul>
+         <li class="tn">匹配人ID：</li>
+         <li class="tn">0</li>
+           <li class="clear"></li>
+      </ul>
+
+      <ul>
+        <li class="tn">匹配人姓名：</li>
+         <li class="tn"></li>
+           <li class="clear"></li>
+      </ul>
+
+      <ul>
+         <li class="tn">匹配人电话：</li>
+        <li class="tn">0</li>
+          <li class="clear"></li>
+     </ul>
+
+
+     <ul>
+        <li class="tn">收件时间：</li>
+        <li class="tn">2016-04-23 09:14:39</li>
+          <li class="clear"></li>
+      </ul>
+      <ul>
+        <li class="tn">邮件标题：</li>
+        <li class="tn"></li>
+          <li class="clear"></li>
+       </ul>
+     <ul>
+         <li class="tn">邮件内容：</li>
+         <li class="tn"></li>
+           <li class="clear"></li>
+       </ul>
+
+     <ul>
+         <li class="tn">凭证内容：</li>
+
+        <td valign="top"><img src="/Public/Uploads/"></li>
+          <li class="clear"></li>
+      </ul>
+
+
+     <ul>
+         <li class="tn">回复内容：</td>
+         <li class="tn"><textarea name="Msg" cols="60" rows="6" id="Msg"></textarea> </li>
+           <li class="clear"></li>
+       </ul>
+     <ul>
+         <li class="tn"><input type="hidden" name="Pid" value="23" /> </li>
+         <li class="tn"><input type="submit" name="Submit" value="回 复" class="button_text" /></li>
+           <li class="clear"></li>
+       </ul>
+
+<input type="hidden" name="__hash__" value="d27055f81d800c28f83e257c94f67e35_bfbc33c502ad87b696887b42f99e5bf7" /></form>
+<ul>
+<li></li>
+<br/>
+  <li class="clear"></li>
+</ul>
+<script>new TableSorter("tb1");</script>
+</div>
+</div>
+{% endblock %}

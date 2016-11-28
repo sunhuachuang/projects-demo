@@ -1,0 +1,92 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+  <h4>#充值管理</h4>
+  <div class="text-center">
+    <p><b>为商户充值</b></p>
+    {{ form_start(form, {attr: {class: "form-horizontal"}})}}
+      <div class="form-group">
+        <label for="input-username" class="col-sm-2 col-sm-offset-3 control-label">充值会员编号:</label>
+        <div class="col-xs-3">
+          {{ form_widget(form.username, {attr: {class: "form-control"}}) }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 col-sm-offset-3 control-label">充值类型</label>
+        <div class="col-xs-3">
+          {{ form_widget(form.type, {attr: {class: "form-control"}}) }}
+        </div>
+      </div>
+      <div class="form-group">
+        <p>*（要减少币值，输入负金额即可！）</p>
+        <label class="col-sm-2 col-sm-offset-3 control-label" for="exampleInputAmount">充值金额</label>
+        <div class="input-group col-xs-3">
+          <div class="input-group-addon">￥</div>
+          {{ form_widget(form.money, {attr: {class: "form-control"}}) }}
+            <div class="input-group-addon">.00</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-3 col-sm-offset-5">
+          <button type="submit" class="btn btn-danger">确认充值</button>
+        </div>
+      </div>
+      {{ form_end(form) }}
+  </div>
+  <form class="form-inline text-center">
+    <div class="form-group">
+      <input type="text" name="dateStart" class="form-control" id="exampleInputEmail3" placeholder="开始日期: 2016-1-11">
+    </div>
+    <div class="form-group">
+      <input type="text" name="dateEnd" class="form-control" id="exampleInputEmail3" placeholder="结束日期: 2016-1-11">
+    </div>
+    <div class="form-group">
+      <input type="text" name="username" class="form-control" id="exampleInputPassword3" placeholder="会员编号">
+    </div>
+    <button type="submit" class="btn btn-primary">立即搜索</button>
+  </form>
+  <br>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <th><input type="checkbox"></th>
+      <th>会员编号</th>
+      <th>充值金额</th>
+      <th>充值类型</th>
+      <th>充值时间</th>
+      <th>确认时间</th>
+      <th>操作账号</th>
+      <th>状态</th>
+    </thead>
+    <form action="{{ path('admin_recharge_sure') }}" method="post">
+    <tbody>
+      {% for recharge in recharges %}
+      <tr>
+        <td><input type="checkbox" name="form[{{ recharge.id }}]"></td>
+        <td>{{ recharge.user.username }}</td>
+        <td>{{ recharge.money }}</td>
+        <td>{{ recharge.type.value }}</td>
+        <td>{{ recharge.createdAt|date('Y-m-d h:i:s') }}</td>
+        <td>{% if recharge.sureFlag %}{{ recharge.updatedAt|date('Y-m-d h:i:s') }}{% endif %}</td>
+        <td>{{ recharge.admin.username }}</td>
+        <td>{% if recharge.sureFlag %}已确认{% else %}<a href="{{ path('admin_recharge_sure_id', {id: recharge.id}) }}" class="btn btn-sm btn-default">确认</a>{% endif %}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td></td>
+        <td>合计</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+    </form>
+  </table>
+  <div>
+    <a class="btn btn-default btn-sm" href="#" role="button">全选</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">确认</a>
+    <a class="btn btn-default btn-sm" href="#" role="button">删除</a>
+  </div>
+{% endblock %}

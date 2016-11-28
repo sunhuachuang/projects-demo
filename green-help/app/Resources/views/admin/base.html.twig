@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Circle-Loop{% endblock %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/css.css') }}" rel="stylesheet" media="screen" type="text/css" />
+  <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+  <body>
+    {{ include('admin/common/header_menu.html.twig') }}
+    <div class="main">
+      {{ include('admin/common/left_menu.html.twig') }}
+      <div class="content" id="ContentBoard">
+        <div class="main_box">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+      <div style="clear:both; overflow:hidden;"></div>
+    </div>
+    {% block javascripts %}
+      <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    {% endblock %}
+  </body>
+{% endblock %}

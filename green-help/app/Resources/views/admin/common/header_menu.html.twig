@@ -1,0 +1,10 @@
+<div id="top">
+  <div class="color-line"></div>
+  <div class="logo"><span>Circle-Loop</span></div>
+  <div class="menu_bg" id="MenuSwitch">☰</div>
+  <div class="dk"> <img src="{{ asset('images/name.png')}}" /><span>欢迎您：{{ app.user.username }} </span>
+    <img src="{{ asset('images/out.png') }}" />
+    <a href="{{ path('admin_logout') }}" onclick="if(confirm('确定安全退出吗?')) return true; else return false;" target="_top">退出
+    </a>
+  </div>
+</div>

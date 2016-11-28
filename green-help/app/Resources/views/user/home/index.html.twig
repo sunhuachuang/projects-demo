@@ -1,0 +1,178 @@
+{% extends 'user/base.html.twig' %}
+
+{% set user = app.user %}
+
+{% block value %}
+<div id="Subject">
+  <ul id="memberInfo">
+    <li class="img"><img src="{{ asset('images/img.png') }}"></li>
+    <li class="name">会员名称：{{ user.bankName }}</li>
+    <li class="clear"></li>
+    <li class="tel">{{ user.phone|default('') }}</li>
+    <li class="info bg1">
+      <a class="{% if user.phone %}hover{% endif %}" href="{{ path('user_info') }}">phone</a>
+    </li>
+    <li class="info bg2">
+      <span style="margin-left:8px; position:absolute;top:-20px;color:red;">{% if messageNumber %}messageNumber{% endif %}</span>
+      <a class="{% if messageNumber %}hover{% endif %}"href="{{ path('user_contact_list') }}">message</a>
+    </li>
+    <li class="info bg3">
+      <a class="hover" href="{{ path('user_info') }}">info</a>
+    </li>
+    <li class="clear"></li>
+    {% for walletName in walletNames  %}
+      {% if walletName.value != '激活币' %}
+        <li class="xian"></li>
+        <li class="money">
+          <span>{{ walletName.value }}钱包(元）</span>
+          {% set wallet = user.getWallet(walletName.value) %}
+          <font>{% if wallet %}{{ wallet.money }}{% else %}0.00{% endif %}</font>
+          <a a-data="{% if wallet %}wallet.id{% endif %}" class="getForm">提现</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    <li class="clear"></li>
+  </ul>
+  <ul id="memberInfo_r">
+    <li class="tn" style="margin-top:26px">会员级别：<b>{{ user.level }}</b></li>
+    <li class="tn" style="margin-top:26px">会员级别：{{ user.level }} </li>
+    <li class="site">我的推广地址：
+      <a href="{{ path('user_register_open', {id: user.id}) }}" target="_blank">/register/{{ user.id }}</a>
+    </li>
+  </ul>
+  <ul class="bg_line"></ul>
+  <ul>
+    <li style="font-size:18px; font-weight:bold; margin-top:17px">交易信息  </li><span style="color:#E53333;font-size:24px;background-color:#FFFFFF;">排单前请完善个人信息。</span>
+    <li class="trading">
+      <a class="provideForm" style="background:url({{ asset('images/3.jpg')}}) no-repeat;">
+	<br>
+        <span><strong><h2>提供帮助</h2></strong></span>
+      </a>
+      <a class="getForm" style="background:url({{ asset('images/1.jpg')}}) no-repeat;">
+	<br>
+        <span><strong><h2>接受帮助</h2></strong></span>
+      </a>
+      <a class="" style="background:url({{ asset('images/5.png')}}) no-repeat;">
+        <span>平台动态</span>
+        <b>76%</b>
+      </a>
+      <a class="" style="background:url({{ asset('images/4.jpg')}}) no-repeat;">
+        <span>数据比例</span>
+        <b>16%</b>
+      </a>
+    </li><li class="clear"></li>
+  </ul>
+  <ul class="bg_line"></ul>
+  <ul class="showTab">
+    <li class="list hover">钱包支出</li>
+    <li class="xian"></li>
+    <li class="list">钱包收入</li>
+    <li class="clear"></li>
+  </ul>
+  <div class="Section" id="Section0">
+    <ul class="list type">
+      <li class="li1">时间</li>
+      <li class="li2">钱包类型</li>
+      <li class="li3">金额</li>
+      <li class="last">交易状态</li>
+      <div class="clear"></div>
+    </ul>
+    {% for history in user.getWalletHistories(2) %}
+      <ul class="list">
+        <li class="li1">{{ history.createdAt|date('Y-m-d i:h:s') }}</li>
+        <li class="li2">{{ history.message }}</li>
+        <li class="li3">{{ history.money }}</li>
+        <li class="last hover">{{ history.status }}</li>
+        <div class="clear"></div>
+      </ul>
+    {% endfor %}
+    <ul id="PageNum">
+      <li></li>
+    </ul>
+  </div>
+  <div class="Section" id="Section1" style="display:none">
+    <ul class="list type">
+      <li class="li1">时间</li>
+      <li class="li2">钱包类型</li>
+      <li class="li3">金额</li>
+      <li class="last">交易状态</li>
+      <div class="clear"></div>
+    </ul>
+    {% for history in user.getWalletHistories(2) %}
+      <ul class="list">
+        <li class="li1">{{ history.createdAt|date('Y-m-d i:h:s') }}</li>
+        <li class="li2">{{ history.message }}</li>
+        <li class="li3">{{ history.money }}</li>
+        <li class="last hover">{{ history.status }}</li>
+        <div class="clear"></div>
+      </ul>
+    {% endfor %}
+    <ul id="PageNum">
+    </ul>
+  </div>
+</div>
+
+<!-- get or provide help  -->
+{{ form_start(form, {attr: {action: path('user_transaction_new')}}) }}
+  <div id="information" class="getForm">
+    <div class="clear" style="height:17px"></div>
+    <div class="title" id="title"></div>
+    <div id="formStyle">
+      <ul>
+        <li class="title">
+          <label>{{ form_widget(form.bankFlag, {attr: {checked: true}}) }}银行支付</label>
+          <label>{{ form_widget(form.myPayFlag, {attr: {checked: true}}) }}支付宝支付</label>
+        </li><li class="clear"></li>
+        <li class="tn">帮助金额：</li><strong>提取金额为100的倍数</strong>
+        <li class="input">{{ form_widget(form.money) }}</li>
+        <br><br>
+        <p class="Prompt" style="margin-left:50px; font-size:20px;"> 我已完全了解所有风险。我自愿参与绿色互助家园,尊重绿色互助家园文化与传统。</p>
+        <li class="clear"></li>
+      </ul>
+      <ul>
+        <li class="button"><input type="submit" onclick="if(confirm(&#39;确定要申请吗？&#39;)) return true; else return false;" value="确认提交"><input class="Cancel" type="button" value="取消"></li>
+        <li class="clear"></li>
+      </ul>
+    </div>
+    <a class="close_click">关闭</a>
+  </div>
+  {{ form_widget(form.type, {attr: {value: 1, class: 'typeClass'}}) }}
+  {{ form_widget(form.tixian, {attr: {value: 0, class: 'tixainClass'}}) }}
+  {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+$(document).ready(function(e) {
+   $("#Subject .showTab .list").click(function(e) {
+     var num=$("#Subject .showTab .list").index(this);
+     $(this).addClass("list hover");
+     $(this).prevAll(".list").removeClass("list hover").addClass("list");
+     $(this).nextAll(".list").removeClass("list hover").addClass("list");
+     $("#Subject .Section").hide();
+     $("#Subject #Section"+num).show();
+   });
+
+   $("a.getForm").click(function(e) {
+     $("#title").html('<span>立即获得帮助</span>');
+     $(".typeClass").val(1);
+     var id = $(this).data();
+     if(id) {
+       $(".tixianClass").val(id);
+     }
+     var h=$("#information.getForm").height()+2;
+     $("#information.getForm").css({"margin-top":-h/2});
+     $("#information.getForm,#information_bg").show()
+   });
+
+   $("a.provideForm").click(function(e) {
+     $("#title").html('<span>立即提供帮助</span>');
+     $(".typeClass").val(2)
+     var h=$("#information.getForm").height()+2;
+     $("#information.getForm").css({"margin-top":-h/2});
+     $("#information.getForm,#information_bg").show()
+   });
+});
+</script>
+{% endblock %}

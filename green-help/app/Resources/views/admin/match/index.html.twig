@@ -1,0 +1,96 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+  <h4>#手动匹配</h4>
+  <div>
+    <form class="form-horizontal" action="{{ path('admin_match_action') }}" method="post">
+      <div class="form-group">
+        <label for="input-username" class="col-sm-2 control-label">进场订单编号:</label>
+        <div class="col-xs-3">
+          <input type="text" class="form-control" name="provide" id="input-username">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-username" class="col-sm-2 control-label">出场订单编号:</label>
+        <div class="col-xs-3">
+          <input type="text" class="form-control" name="get" id="input-username">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-3">
+          <button type="submit" class="btn btn-danger">确认匹配</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <form class="form-inline text-right">
+      <div class="form-group col-sm-10">
+        <input type="text" name="username" class="form-control" id="exampleInputPassword3" placeholder="订单编号"/>
+        <button type="submit" class="btn btn-primary">立即搜索</button>
+      </div>
+    </form>
+  </div>
+  <h3>挂单进场</h3>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <th>订单编号</th>
+      <th>日期</th>
+      <th>会员编号</th>
+      <th>挂单金额</th>
+      <th>状态</th>
+      <th>是否排完队</th>
+      <th>是否匹配</th>
+      <th>是否超时</th>
+      <th>是否手动</th>
+    </thead>
+    <tbody>
+      {% for match in provides %}
+      <tr>
+        <td>{{ match.orderNumber }}</td>
+        <td>{{ match.createdAt|date('Y-m-d h:i:s') }}</td>
+        <td>{{ match.user.username }}</td>
+        <td>{{ match.money }}</td>
+        <td>{% if match.status == 0 %}等待确认{% elseif match.status == 1 %}<p class="text-warning">已打款</p>{% else %}交易完成{% endif %}</td>
+        <td>{% if match.isQueue %}<p class="text-success">是</p>{% else %}否{% endif %}</td>
+        <td>{% if match.matchFlag %}<p class="text-success">匹配成功<p>{% else %}未匹配{% endif %}</td>
+        <td>{% if match.isMaxTime %}<p class="text-danger">已超时<p>{% else %}未超时{% endif %}</td>
+        <td>{% if match.isHand %}手动{% else %}禁止手动{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <h3>挂单出场</h3>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <th>订单编号</th>
+      <th>日期</th>
+      <th>会员编号</th>
+      <th>挂单金额</th>
+      <th>状态</th>
+      <th>是否排完队</th>
+      <th>是否匹配</th>
+      <th>是否超时</th>
+      <th>是否手动</th>
+    </thead>
+    <tbody>
+      {% for match in gets %}
+      <tr>
+        <td>{{ match.orderNumber }}</td>
+        <td>{{ match.createdAt|date('Y-m-d h:i:s') }}</td>
+        <td>{{ match.user.username }}</td>
+        <td>{{ match.money }}</td>
+        <td>{% if match.status == 0 %}等待确认{% elseif match.status == 1 %}<p class="text-warning">已打款</p>{% else %}交易完成{% endif %}</td>
+        <td>{% if match.isQueue %}<p class="text-success">是</p>{% else %}否{% endif %}</td>
+        <td>{% if match.matchFlag %}<p class="text-success">匹配成功<p>{% else %}未匹配{% endif %}</td>
+        <td>{% if match.isMaxTime %}<p class="text-danger">已超时<p>{% else %}未超时{% endif %}</td>
+        <td>{% if match.isHand %}手动{% else %}禁止手动{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-md-4"><a class="btn btn-success">一键匹配</a><span class="text-danger">(此按钮用于匹配已经排完队的订单)</span></div>
+    <div class="col-md-4 col-md-offset-4"><a class="btn btn-info">导出到Excel</a></div>
+  </div>
+{% endblock %}

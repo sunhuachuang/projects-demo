@@ -1,0 +1,38 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+<div id="Subject">
+  <ul>
+    <li class="type_text">{% if slug == 2 %}提供帮助{% else %}得到帮助{% endif %}</li>
+    <li class="clear"></li>
+  </ul>
+  <div class="Section">
+    <ul class="list type">
+      <li style="width:160px">订单编号</li>
+      <li style="width:120px">创建日期</li>
+      <li style="width:110px">帮助金额</li>
+      <li style="width:110px">匹配状态</li>
+      <li style="width:110px">确认状态</li>
+      <li class="last" style="width:110px">操作</li>
+      <div class="clear"></div>
+    </ul>
+    {% for trans in  transactions %}
+    <ul class="list">
+      <li style="width:130px">{{ trans.orderNumber }}</li>
+      <li style="width:110px">{{ trans.createdAt|date('Y-m-d h:i:s') }}</li>
+      <li style="width:110px">{{ trans.money }}</li>
+      <li style="width:110px">{% if trans.matchFlag %}<font color="green">已匹配</font>{% else %}等待匹配{% endif %}</li>
+      <li style="width:110px">{% if trans.status %}已确认{% else %}等待确认{% endif %}</li>
+      <li style="width:110px;margin-top:0px;" >
+        <a href="{{ path('user_transaction_show',{id: trans.id})}}">查看</a>
+        {% if not trans.matchFlag %}
+        <span> / </span>
+        <a onclick="if(confirm(&#39;确定要删除吗？&#39;)) return true; else return false;" href="{{ path('user_transaction_delete', {id: trans.id}) }}">删除</a>
+        {% endif %}
+      </li>
+      <div class="clear"></div>
+    </ul>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

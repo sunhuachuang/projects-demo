@@ -1,0 +1,33 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+<div id="Subject">
+  <ul>
+    <li class="type_text">申请条件</li>
+    <li class="bg_line"></li>
+  </ul>
+  <div class="content" style="text-align:center">
+    {% if isLeveling %}
+      <p>申请正在审核中！</p>
+    {% elseif isOK %}
+      <p>您已经是该会员等级了</p>
+    {% else %}
+    <form action="{{ path('user_level_apply', {level:level})}}">
+      <div id="text" name="ddd">
+        您的团队人数为：<b>{{ number }}</b>人， 条件人数：<b>{{ needNumber }}</b>人。
+        {% if number < needNumber %}
+        <p>以上条件必须同时达到方可申请！</p>
+        {% else %}
+        <p>
+          您可申请！
+        </p>
+        {% endif %}
+      </div>
+      {% if number >= needNumber %}
+      <input id="button" type="submit" value="申请"/>
+      {% endif %}
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

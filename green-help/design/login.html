@@ -1,0 +1,83 @@
+
+<!-- saved from url=(0047)http://www.52917168.com/index.php/Public/logind -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body id="member">﻿
+
+
+
+<title>绿色互助家园</title>
+<meta name="keywords" content="绿色互助家园">
+<meta name="description" content="绿色互助家园">
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+
+<link href="./login_files/master.css" rel="stylesheet" media="screen" type="text/css">
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/jquery-1.7.2.min11.js\"></sc"+"ript>")</script><script src="./login_files/jquery-1.7.2.min11.js"></script>
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/common11.js\"></sc"+"ript>")</script><script src="./login_files/common11.js"></script>
+
+
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/Base.js\"></sc"+"ript>")</script><script src="./login_files/Base.js"></script>
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/prototype.js\"></sc"+"ript>")</script><script src="./login_files/prototype.js"></script> 
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/mootools.js\"></sc"+"ript>")</script><script src="./login_files/mootools.js"></script> 
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/Ajax/ThinkAjax.js\"></sc"+"ript>")</script><script src="./login_files/ThinkAjax.js"></script><div id="ThinkAjaxResult" class="ThinkAjax"></div> 
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/Form/CheckForm.js\"></sc"+"ript>")</script><script src="./login_files/CheckForm.js"></script> 
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/common.js\"></sc"+"ript>")</script><script src="./login_files/common.js"></script><div id="overlay" class="none"></div><div id="lightbox" class="none"></div> 
+<script type="text/javascript">document.write("<scr"+"ipt src=\"/Public/Js/ie6png.js\"></sc"+"ript>")</script><script src="./login_files/ie6png.js"></script> 
+
+<script language="JavaScript">
+
+var PUBLIC	 =	 '/Public';
+
+
+function fleshVerify(type){
+//重载验证码
+var timenow = new Date().getTime();
+if (type)
+{
+$('verifyImg').src= '/index.php/Public/verify/adv/1/'+timenow;
+}else{
+$('verifyImg').src= '/index.php/Public/verify/'+timenow;
+}
+
+}
+//-->
+</script>
+
+
+
+
+<div id="wrapper">
+  <ul id="header">
+    <li class="logo" style="margin-top:50px;margin-left:-10px;"><a href="http://www.52917168.com/index.php/Public/index.html"><img src="./login_files/logo1.png"></a></li>
+  </ul>
+  <div class="login"><div id="login">
+    <ul class="kuang">
+	<form method="post" name="login" id="form1" action="http://www.52917168.com/index.php/Public/checkLogin">
+      <li class="tn" style="margin-top:73px">登陆账号：<b class="b1"></b></li>
+      <li class="input" style="margin-top:73px"><input type="text" name="account" maxlength="11" placeholder="用户帐号" required="" class="full"></li>
+      <li class="clear"></li>
+      <li class="tn">登陆密码：<b class="b2"></b></li>
+      <li class="input"><input type="password" name="password" placeholder="登录密码" required="" class="full"></li> 
+      <li class="clear"></li>
+      <li class="tn">验证码：<b class="b3"></b></li>
+      <li class="input" style="width:92px"><input type="text" name="verify" maxlength="6" placeholder="验证码" required="" onkeydown="keydown(event)" style="width:165px;vertical-align:middle"></li>
+      <li class="img"><img id="verifyImg" src="./login_files/saved_resource" width="55" onclick="fleshVerify()" border="0" alt="点击刷新验证码" style="cursor:pointer" align="absmiddle">
+<a href="http://www.52917168.com/index.php/Public/logind#" onclick="fleshVerify()" title="点击刷新验证码">看不清？换一张</a><br></li>
+      
+      <li class="clear"></li>
+      <li class="tn" style="margin-top:37px; text-indent:22px"><a href="http://www.52917168.com/index.php/Reg/us_reg2">忘记密码？</a><b class="b4"></b></li>
+      
+      <li class="button" style="width:120px;height:34px;border:1px solid #eb4f38;background:#eb4f38; color:white; font-size:16px; text-align:center;cursor:pointer;"><input type="submit" value="登陆"></li>
+      <li class="clear"></li>
+<input type="hidden" name="__hash__" value="9000dd598656c9988f45fa9f0a0de77d_142ba51d5646094485b6b75a34887689"></form>
+      <li class="arrow">
+        <b class="b1"></b>
+        <b class="b2"></b>
+        <b class="b3"></b>
+      </li>
+      <a class="close"></a>
+    </ul>
+    <div id="footer">
+      <div class="copyright" style="margin-top:30px">Copyright © 2016 绿色互助家园版权所有</div>
+    </div>
+  </div></div>
+</div>
+</body></html>

@@ -1,0 +1,118 @@
+{% extends 'user/base.html.twig' %}
+{% set user = app.user %}
+{% block value %}
+<div id="Subject">
+  <ul>
+    <li class="type_text">注册会员</li>
+    <li class="bg_line"></li>
+  </ul>
+  <div class="content" id="formStyle">
+    {{ form_start(form) }}
+    <ul>
+      <li class="tn"><span>*</span> 推荐人：</li>
+      <li class="input">
+        {{ form_widget(form.parentName, {attr: {value: user.username}}) }}<font color="red">{{ form_errors(form.parentName) }}</font>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span> 会员名：</li>
+      <li class="input">
+        {{ form_widget(form.username) }}{{ form_errors(form.username) }}
+      </li>
+      <li class="Prompt hover" style="width:298px">此会员名用于登录系统使用</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span> 一级密码：</li>
+      <li class="input">{{ form_widget(form.password.first)}}{{ form_errors(form.password.first) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span> 确认密码：</li>
+      <li class="input">{{ form_widget(form.password.second)}}{{ form_errors(form.password.second) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span> 二级密码：</li>
+      <li class="input">{{ form_widget(form.secondPassword.first)}}{{ form_errors(form.secondPassword.first) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span>确认密码：</li>
+      <li class="input">{{ form_widget(form.secondPassword.second)}}{{ form_errors(form.secondPassword.second) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span> 开户银行：</li>
+      <li class="input">{{ form_widget(form.bankObject, {attr: {style: "width:260px;height:40px;"}})}}{{ form_errors(form.bankObject) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span>银行卡号：</li>
+      <li class="input" >{{ form_widget(form.bankNumber)}}{{ form_errors(form.bankNumber) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span>开户姓名：</li>
+      <li class="input">{{ form_widget(form.bankName)}}{{ form_errors(form.bankName) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span>开户省份：</li>
+      <li class="input">
+        {{ form_widget(form.bankProvince)}}{{ form_errors(form.bankProvince) }}
+      </li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span>开户城市：</li>
+      <li class="input">
+        {{ form_widget(form.bankCity)}}{{ form_errors(form.bankCity) }}
+      </li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span>开户地址：</li>
+      <li class="input">{{ form_widget(form.bankAddress)}}{{ form_errors(form.bankAddress) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span>所属报单中心：</li>
+      <li class="input">{{ form_widget(form.reportDepartment, {attr: {value: user.reportDepartment}})}}{{ form_errors(form.reportDepartment) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">推荐人电话：</li>
+      <li class="input">{{ form_widget(form.referencePhone, {attr: {value: user.phone}})}}{{ form_errors(form.referencePhone) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn"><span>*</span>联系电话：</li>
+      <li class="input">{{ form_widget(form.phone)}}{{ form_errors(form.phone) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">支付宝：</li>
+      <li class="input">{{ form_widget(form.myPay)}}{{ form_errors(form.myPay) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="tn">身份证号：</li>
+      <li class="input">{{ form_widget(form.cartId)}}{{ form_errors(form.cartId) }}</li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="checkbox">{{ form_widget(form.agreeFlag, {attr: {checked: true}})}}我已阅读并同意<a>《用户注册协议》</a></li>
+      <li class="clear"></li>
+    </ul>
+    <ul>
+      <li class="button">
+        <input name="submit1" id="Access" type="submit" class="button_text" value="注册" />
+        &nbsp;&nbsp;
+        <input name="重置" type="reset" class="button_text" value="重置" id="重置" />
+      </li>
+    </ul>
+    {{ form_end(form) }}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+<div id="Subject">
+  <ul>
+    <li class="type_text">帮助詳情</li>
+    <li class="bg_line"></li>
+  </ul>
+  <div class="content" style="text-align:center">
+    <div class="title" id="title">订单号：{{ transaction.orderNumber }}</div>
+    <div id="formStyle">
+      <ul>
+        <p>{% if transaction.bankFlag %}支持银行支付 {% endif %}</p>
+        <p>{% if transaction.myPayFlag %}支持支付宝支付{% endif %}</p>
+        <p>创建时间： {{ transaction.createdAt|date('Y-m-d h:i:s') }}</p>
+        <p>金额： <b>{{ transaction.money }}</b></p>
+        <p>匹配状态: <b>{% if transaction.matchFlag %}<font color="green">已匹配</font>{% else %}等待匹配{% endif %}</b></p>
+        <p>确认状态: <b>{% if transaction.status == 0 %}等待确认{% elseif transaction.status == 1%}已打款{% else %}交易完成{% endif %}</b></p>
+        {% if transaction.matchFlag %}
+          <p>对方状态：
+            <b>
+              {% if transaction.type == 1 %}
+                {% if transaction.matchProvide.status == 0 %}等待确认{% elseif transaction.matchProvide.status == 1%}已打款{% else %}交易完成{% endif %}
+              {% else %}
+                {% if transaction.matchGet.status == 0 %}等待确认收款
+                {% else %}交易完成{% endif %}
+              {% endif %}
+            </b>
+          </p>
+        {% endif %}
+        {% if transaction.matchFlag and transaction.type == 2 %}
+          <p>匹配账号：<b>{{ transaction.matchGet.username }}</b></p>
+          <p>开户银行：<b>{{ transaction.matchGet.user.bank }}</b></p>
+          <p>开户账号：<b>{{ transaction.matchGet.user.bankNumber }}</b></p>
+          <p>开户姓名：<b>{{ transaction.matchGet.user.bankName }}</b></p>
+          <p>详细开户地址：<b>{{ transaction.matchGet.user.bankAddress }}</b></p>
+          <p>收款人电话：<b>{{ transaction.matchGet.user.phone }}</b></p>
+          <p>收款人支付宝账号：<b>{{ transaction.matchGet.user.myPay }}</b></p>
+          {% if transaction.status == 0 %}
+          <form action="{{ path('user_transaction_sure', {id: transaction.id}) }}">
+            <input type="submit" style="margin: 0 12px 0 0;height: 32px;width: 123px;background: #ec705d;border: 0;color: white;font-size: 14px;border-radius: 2px;cursor: pointer;" value="确认已打款"/>
+          </form>
+          {% endif %}
+        {% endif %}
+        {% if transaction.matchFlag and transaction.type == 1 and transaction.matchProvide.status == 1 %}
+        <form action="{{ path('user_transaction_sure_get', {id: transaction.id}) }}">
+          <input type="submit" style="margin: 0 12px 0 0;height: 32px;width: 123px;background: #ec705d;border: 0;color: white;font-size: 14px;border-radius: 2px;cursor: pointer;" value="确认已收款"/>
+        </form>
+        {% endif %}
+      </ul>
+      <li class="clear"></li>
+      <br>
+      <input type="button" style="margin: 0 12px 0 0;height: 32px;width: 123px;background: #ec705d;border: 0;color: white;font-size: 14px;border-radius: 2px;cursor: pointer;" onclick="history.back();" value="返回"/>
+    </div>
+  </div>
+</div>
+{% endblock %}

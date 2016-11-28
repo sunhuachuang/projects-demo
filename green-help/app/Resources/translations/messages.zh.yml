@@ -1,0 +1,26 @@
+user_new: 新規アカウント作成
+user_edit: アカウント編集
+user_delete: アカウント削除
+
+ROLE_ESTIMATE: 見積
+ROLE_ORDER: 受注
+ROLE_PURCHASE: 仕入
+ROLE_STOCK: 在庫
+ROLE_ACHIEVE: 実績
+ROLE_FINANCE: 財務
+ROLE_MASTER: マスタ
+ROLE_OPERATION_HISTORY: 操作履歴
+ROLE_ACCOUNT: アカウント管理
+
+master_consumption_tax: 消費税設定
+master_abc_new: ABC設定新規作成
+master_abc_edit: ABC設定編集
+master_abc_delete: ABC設定削除
+master_abc_apply_do: ABCマスタ一括適用
+
+master_special_price_new: 特値設定新規作成
+master_special_price_edit: 特値設定編集
+master_special_price_delete: 特値設定削除
+
+order: 受注
+estimate: 見積

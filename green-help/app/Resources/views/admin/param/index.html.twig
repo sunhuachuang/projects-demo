@@ -1,0 +1,138 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+  <h4>#参数设置</h4>
+  <div>
+    <form action="{{ path('admin_param_edit') }}" method="post">
+    <table class="table table-hover">
+      <tr>
+        <td class="text-right">会员级别：</td>
+        <td><input type="text" name="form[levels]" value="{{ params['levels']|join('|') }}" style="width: 50%;"><span class="text-primary">&nbsp;&nbsp;#用|分割</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">注册投资：</td>
+        <td><input type="text" name="form[registerMoney]" value="{{ params['registerMoney'].value|default('') }}" style="width: 50%;"></td>
+      </tr>
+      <tr>
+        <td class="text-right">提供接受百分比：</td>
+        <td><input type="text" name="form[provideOrGets]" value="{{ params['provideOrGets']|join('|') }}" style="width: 50%;"><span class="text-primary">&nbsp;&nbsp;#用|分割</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">静态收入—每日利息：</td>
+        <td><input type="text" name="form[staticMoney]" value="{{ params['staticMoney'].value|default('') }}" style="width: 50%;"><span class="text-primary">百分比</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">静态收入—每日增加利息：</td>
+        <td><input type="text" name="form[staticAddMoney]" value="{{ params['staticAddMoney'].value|default('') }}" style="width: 50%;"><span class="text-primary">百分比</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">出局天数：</td>
+        <td><input type="text" name="form[outDay]" value="{{ params['outDay'].value|default('') }}" style="width: 50%;"><span class="text-primary">天</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">推荐奖励：</td>
+        <td><input type="text" name="form[tuijian]" value="{{ params['tuijian'].value|default('') }}" style="width: 50%;"><span class="text-primary">百分比</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">推荐每增加一人增加：</td>
+        <td><input type="text" name="form[tuijianAdd]" value="{{ params['tuijianAdd'].value|default('') }}" style="width: 50%;"><span class="text-primary">百分比</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">管理奖：</td>
+        <td><input type="text" name="form[managerMoneys]" value="{{ params['managerMoneys']|join('|') }}" style="width: 50%;"><span class="text-primary">&nbsp;&nbsp;#用|分割(1代|2代|3代|4代|5代|6代)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">经理奖：</td>
+        <td><input type="text" name="form[jingliMoneys]" value="{{ params['jingliMoneys']|join('|') }}" style="width: 50%;"><span class="text-primary">百分比</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">投资奖：</td>
+        <td><input type="text" name="form[touziMoneys]" value="{{ params['touziMoneys']|join('|')}}" style="width: 50%;"><span class="text-primary">&nbsp;&nbsp;#用|分割</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">挂卖限额：</td>
+        <td><input type="text" name="form[maxMoney]" value="{{ params['maxMoney'].value|default('') }}" style="width: 50%;"><span class="text-primary">元/每天/每人</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">排队进场时间：</td>
+        <td><input type="text" name="form[inDay]" value="{{ params['inDay'].value|default('') }}" style="width: 50%;"><span class="text-primary">天</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">打款超时锁定时间：</td>
+        <td><input type="text" name="form[provideTime]" value="{{ params['provideTime'].value|default('') }}" style="width: 50%;"><span class="text-primary">小时</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">收款超时锁定时间：</td>
+        <td><input type="text" name="form[getMoneyTime]" value="{{ params['getMoneyTime'].value|default('') }}" style="width: 50%;"><span class="text-primary">小时</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">交易完成后锁定取出时间：</td>
+        <td><input type="text" name="form[finishDay]" value="{{ params['finishDay'].value|default('') }}" style="width: 50%;"><span class="text-primary">天</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">网络管理费：</td>
+        <td><input type="text" name="form[networkMoney]" value="{{ params['networkMoney'].value|default('') }}" style="width: 50%;"><span class="text-primary">元</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">奖名称：</td>
+        <td><input type="text" name="form[moneyNames]" value="{{ params['moneyNames']|join('|') }}" style="width: 50%;"><span class="text-primary">&nbsp;&nbsp;#用| 分割</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">会员充值账户：</td>
+        <td><input type="text" name="form[userRecharge]" value="{{ params['userRecharge'].value|default('') }}" style="width: 50%;"><span class="text-primary"></span></td>
+      </tr>
+      <tr>
+        <td class="text-right">最低提现额度：</td>
+        <td><input type="text" name="form[minMoney]" value="{{ params['minMoney'].value|default('') }}" style="width: 50%;"><span class="text-primary">元</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">网站人数：</td>
+        <td><input type="text" name="form[userNumber]" value="{{ params['userNumber'].value|default('') }}" style="width: 50%;"><span class="text-primary">人</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">关闭网站提示：</td>
+        <td><textarea name="form[closeTip]" rows="3" class="form-control" style="width: 50%;">{{ params['closeTip'].value|default('') }}</textarea>
+          <span class="text-primary">&nbsp;&nbsp;#（200字内)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">开户银行：</td>
+        <td><textarea name="form[banks]" rows="3" class="form-control" style="width: 50%;">{{ params['banks']|join('|') }}</textarea>
+          <span class="text-primary">&nbsp;&nbsp;#每家银行间用|分割</span></td>
+      </tr>
+      <tr>
+        <td class="text-right">汇款信息：</td>
+        <td><textarea name="form[bankMessage]" rows="3" class="form-control" style="width: 50%;">{{ params['bankMessage'].value|default('') }}</textarea></td>
+      </tr>
+      <tr>
+        <td class="text-right">会员注册成功信息：</td>
+        <td><textarea name="form[registerMessage]" rows="3" class="form-control" style="width: 50%;">{{ params['registerMessage'].value|default('') }}</textarea></td>
+      </tr>
+      <tr>
+        <td class="text-right">登录设置</td>
+        <td>
+          <input type="radio" name="form[login]" value="0" {% if params['login'] and params['login'].value == 0 %} checked{% endif %}/>允许
+          <input type="radio" name="form[login]" {% if params['login'] and params['login'].value == 1 %} checked{% endif %} value="1" />不允许<span class="text-primary">&nbsp;&nbsp;(是否允许一个用户同时多人在线！)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-right">前台设置</td>
+        <td>
+          <input type="radio" name="form[front]" value="0"  {% if params['front'] and params['front'].value == 0 %}checked{% endif %}/>开启
+          <input type="radio" name="form[front]" value="1"  {% if params['front'] and params['front'].value == 1 %}checked{% endif %}/>允许<span class="text-primary">&nbsp;&nbsp;(关闭前台会员登录！)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-right">手动匹配</td>
+        <td>
+          <input type="radio" name="form[match]" value="0" {% if params['match'] and params['match'].value == 0 %}  checked{% endif %} />开启
+          <input type="radio" name="33" value="1" {% if params['match'] and params['match'].value == 1 %}  checked{% endif %}/>关闭<span class="text-primary">&nbsp;&nbsp;(开启/关闭手动匹配！)</span>
+        </td>
+      </tr>
+    </table>
+    <div class="text-center" style="padding: 1em;">
+      <button type="submit" class="btn btn-danger" style="margin: 0 1em;">确认修改</button>
+      <button type="reset" class="btn btn-success" style="margin: 0 1em;">取消修改</button>
+    </div>
+    </form>
+  </div>
+{% endblock %}

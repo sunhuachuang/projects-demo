@@ -1,0 +1,74 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+<div id="Subject">
+  <ul>
+    <li class="type_text">钱包</li>
+    <li class="location a"><a class="Get">提现</a></li>
+    <li class="location">元</li>
+    <li class="location money">{{ wallet.money|default(0.00) }}</li>
+    <li class="location"><b>钱包余额：</b></li>
+    <li class="clear"></li>
+  </ul>
+  <div class="Section" id="Section0">
+    <ul class="list type">
+      <li style="width:150px">会员编号</li>
+      <li style="width:150px">日期</li>
+      <li style="width:150px">说明</li>
+      <li style="width:150px">+收入/-支持</li>
+      <div class="clear"></div>
+    </ul>
+    {% if wallet %}
+    {% for history in wallet.walletHistories %}
+    <ul class="list">
+      <li style="width:150px">{{ app.user.username }}</li>
+      <li style="width:150px">{{ history.createdAt|date('Y-m-d h:i:s') }}</li>
+      <li style="width:150px">{{ history.message }}</li>
+      <li style="width:150px">{{ history.money }}</li>
+      <div class="clear"></div>
+    </ul>
+    {% endfor  %}
+    {% endif %}
+  </div>
+</div>
+
+<!-- get or provide help  -->
+{{ form_start(form, {attr: {action: path('user_transaction_new')}}) }}
+  <div id="information" class="getForm">
+    <div class="clear" style="height:17px"></div>
+    <div class="title" id="title"><span>立即获得帮助</span></div>
+    <div id="formStyle">
+      <ul>
+        <li class="title">
+          <label>{{ form_widget(form.bankFlag, {attr: {checked: true}}) }}银行支付</label>
+          <label>{{ form_widget(form.myPayFlag, {attr: {checked: true}}) }}支付宝支付</label>
+        </li><li class="clear"></li>
+        <li class="tn">帮助金额：</li><strong>提取金额为100的倍数</strong>
+        <li class="input">{{ form_widget(form.money) }}</li>
+        <br><br>
+        <p class="Prompt" style="margin-left:50px; font-size:20px;"> 我已完全了解所有风险。我自愿参与绿色互助家园,尊重绿色互助家园文化与传统。</p>
+        <li class="clear"></li>
+      </ul>
+      <ul>
+        <li class="button"><input type="submit" onclick="if(confirm(&#39;确定要申请吗？&#39;)) return true; else return false;" value="确认提交"><input class="Cancel" type="button" value="取消"></li>
+        <li class="clear"></li>
+      </ul>
+    </div>
+    <a class="close_click">关闭</a>
+  </div>
+  {{ form_widget(form.type, {attr: {value: 1, class: 'typeClass'}}) }}
+  {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+$(document).ready(function(e) {
+   $("a.getForm").click(function(e) {
+     var h=$("#information.getForm").height()+2;
+     $("#information.getForm").css({"margin-top":-h/2});
+     $("#information.getForm,#information_bg").show()
+   });
+});
+</script>
+{% endblock %}

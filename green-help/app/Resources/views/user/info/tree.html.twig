@@ -1,0 +1,79 @@
+{% extends 'user/base.html.twig' %}
+
+{% block value %}
+<div id="Subject">
+  <ul>
+    <li class="type_text">推荐会员树状图</li>
+    <li class="bg_line"></li>
+  </ul>
+  <div class="content">
+    <form>
+      <tr>
+        <td height="30">&nbsp;&nbsp;会员编号：
+          <input type="text" name="username" value="{{ username }}" title="帐号查询">
+          <button type="submit" class="btn1">查询</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          团队人数：<b>{{ number }}</b> 人
+        </td>
+      </tr>
+    </form>
+    {% if user %}
+    {% if username %}
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="m1">
+      <tr>
+        <td>
+          <div>
+            <img id="img{{ user.id }}" align="absmiddle"
+                 {% if user.hasChild %}
+                 src="{{ asset('images/tree/P1.gif') }}"
+                 {% else %}
+                 src="{{ asset('images/tree/M1.gif') }}"
+                 {% endif %}
+                 >
+            <img id="fg{{ user.id }}"
+                 src="{{ asset('images/tree/Official.gif') }}"
+                 align="absmiddle"> {{ user.username }}({{ user.bankName }}) [{{ user.level }}]
+            <img id="oimg{{ user.id }}" src="{{ asset('images/tree/M1.gif') }}" align="absmiddle" style="display:none;">
+          </div>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" id="m1388" class="treep2">
+          </table>
+          <hr>
+        </td>
+      </tr>
+      {% endif %}
+      <tr>
+        <td>
+          {% for child in user.getChildren %}
+          <div>
+            <img id="img{{ child.id }}" align="absmiddle"
+                 {% if child.hasChild %}
+                 src="{{ asset('images/tree/P1.gif') }}"
+                 {% else %}
+                 src="{{ asset('images/tree/M1.gif') }}"
+                 {% endif %}
+                 >
+            <img id="fg{{ child.id }}"
+                 src="{{ asset('images/tree/Official.gif') }}"
+                 align="absmiddle"> {{ child.username }}({{ child.bankName }}) [{{ child.level }}]
+            <img id="oimg{{ child.id }}" src="{{ asset('images/tree/M1.gif') }}" align="absmiddle" style="display:none;">
+          </div>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" id="m1388" class="treep2">
+          </table>
+          {% endfor %}
+        </td>
+      </tr>
+    </table>
+    {% else %}
+    没有找到该用户！
+    {% endif %}
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="30">说明:
+          <img src="{{ asset('images/tree/Official.gif')}}" width="18" height="18" />已开通
+          <img src="{{ asset('images/tree/trial.gif') }}" width="18" height="18" />未开通
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <div id="member">
+  <div id="wrapper">
+    <ul id="header">
+      <li class="logo" style="margin-top:50px;margin-left:-10px;"><a href="{{ path('homepage') }}"><img src="{{ asset('images/logo1.png')}}"></a></li>
+    </ul>
+    <div class="login"><div id="login">
+      <ul class="kuang">
+        <form action="{{ path('user_login_check') }}" method="post" role="form">
+          <li class="tn" style="margin-top:73px">用户名：<b class="b1"></b></li>
+          <li class="input" style="margin-top:73px">
+            <input type="text" name="_username" maxlength="11"  placeholder="用户名" required class="full" value="{{ last_username }}">
+          </li>
+          <li class="clear"></li>
+          {% if error %}<li style="margin: 0 40%;"><font color="red">*用户名与密码不匹配</font></li>{% endif %}
+          <li class="tn">登陆密码：<b class="b2"></b></li>
+          <li class="input">
+            <input type="password"  placeholder="登录密码" required class="full" name="_password">
+            </li>
+          <li class="clear"></li>
+          <li class="tn" style="margin-top:37px; text-indent:22px">
+            <a href="##">忘记密码？</a><b class="b4"></b>
+          </li>
+          <li class="button" style="width:120px;height:34px;border:1px solid #eb4f38;background:#eb4f38; color:white; font-size:16px; text-align:center;cursor:pointer;">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <input type="submit" value="登陆">
+          </li>
+          <li class="clear"></li>
+          <li class="arrow">
+            <b class="b1"></b>
+            <b class="b2"></b>
+            <b class="b3"></b>
+          </li>
+          <a class="close"></a>
+      </ul>
+      <div id="footer">
+        <div class="copyright" style="margin-top:30px">Copyright © 2016 绿色互助家园版权所有</div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+  <h4>#晋级管理</h4>
+  {{ form_start(form) }}
+  <table class="table">
+    <tr>
+      <td class="text-center">会员编号</td>
+      <td class="text-left">{{ user.username }}</td>
+    </tr>
+    <tr>
+      <td class="text-center">当前等级</td>
+      <td class="text-left">{{ user.level }}</td>
+    </tr>
+    <tr>
+      <td class="text-center">晋级等级</td>
+      <td class="text-left">
+        {{ form_widget(form.levelObject, {attr: {class: 'form-control', style: 'width: 30%;'}}) }}
+        <input type="checkbox" name="diff" />计算差值
+      </td>
+    </tr>
+  </table>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">确认升级</button>
+    <input type="hidden" name="oldLevel" value="{{ user.level }}"/>
+  </div>
+  {{ form_end(form) }}
+  <br>
+  <table class="table">
+    <thead>
+      <th>会员编号</th>
+      <th>晋级前</th>
+      <th>晋级后</th>
+      <th>补充差额</th>
+      <th>申请时间</th>
+      <th>确认时间</th>
+      <th>备注</th>
+      <th>状态</th>
+    </thead>
+    <tbody>
+      {% for application in applications %}
+      <tr>
+        <td>{{ application.user.username }}</td>
+        <td>{{ application.oldLevel }}</td>
+        <td>{{ application.level }}</td>
+        <td>{{ application.diff }}</td>
+        <td>{{ application.createdAt|date('Y-m-d h:i:s') }}</td>
+        <td>{{ application.updatedAt|date('Y-m-d h:i:s') }}</td>
+        <td>{% if application.isUser %}主动申请{% else %}系统管理员升级{% endif %}</td>
+        <td>{% if application.approveFlag %}已确认{% else %}
+          <a href="{{ path('admin_level_application_apply', {id: application.id}) }}" class="btn btn-sm btn-default">升级</a>
+        {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

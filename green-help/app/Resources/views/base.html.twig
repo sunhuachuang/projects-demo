@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}中国fund基金{% endblock %}</title>
+    <meta name="keywords" content="中国fund基金" />
+    <meta name="description" content="中国fund基金" />
+    <meta http-equiv="X-UA-Compatible"content="IE=9; IE=8; IE=7; IE=EDGE">
+    {% block stylesheets %}
+      <link href="{{ asset('css/base.css') }}" rel="stylesheet" media="screen" type="text/css" />
+      <link href="{{ asset('css/master.css') }}" rel="stylesheet" media="screen" type="text/css" />
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+  </head>
+  {% block body %}
+  <body>
+    {% block content %}
+    {% endblock %}
+    {% block javascripts %}
+      <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+      <script src="{{ asset('js/common.js') }}"></script>
+    {% endblock %}
+  </body>
+  {% endblock %}
+</html>
