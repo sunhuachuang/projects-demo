@@ -1,7 +1,6 @@
 from flask import Flask
-from .admin import create_admin
-from .models import db, cache
 from flask_login import LoginManager
+from .models import db, cache
 
 __version__ = '0.1'
 __status__ = 'dev'
@@ -34,10 +33,8 @@ def register_database(app):
     cache.init_app(app)
 
 def register_blueprint(app):
-    from app.core.views import bp
-    app.register_blueprint(bp)
-    from app.core.api import api
-    app.register_blueprint(api, url_prefix='/api')
+    from .views import register_blueprints
+    register_blueprints(app)
 
 def init_login(app):
     login_manager = LoginManager()
