@@ -1,7 +1,7 @@
 from flask import Flask
 from .admin import create_admin
 from .models import db, cache
-from flask.ext.login import LoginManager
+from flask_login import LoginManager
 
 __version__ = '0.1'
 __status__ = 'dev'
