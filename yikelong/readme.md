@@ -25,6 +25,17 @@
 ### 构建步骤
 ...
 
+### roadmap
+1. 基本目录结构 --ok
+2. 基本views(路径) --dev
+3. 数据库与表的设计 --dev
+4. user处理 --waiting
+5. products --waiting
+6. orders   --waiting
+7. paying   --waiting
+8. server_config --waiting
+9. ...
+
 ### 使用到的包
 1. Flask(0.11)
 2. Flask-Admin

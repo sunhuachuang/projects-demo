@@ -1,7 +1,7 @@
 # projects-demo
 some project demo only for study.
 
-### [yikelong](https://github.com/sunhuachuang/projects-demo/yikelong)
+### [yikelong](https://github.com/sunhuachuang/projects-demo/tree/master/yikelong)
 a simple online shop. --> ***flask(python)***
 ### chat-room
 use webrtc to build online chat. --> ***webrtc(js) & tornado(python)***
